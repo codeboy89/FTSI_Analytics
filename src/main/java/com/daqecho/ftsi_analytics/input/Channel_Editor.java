@@ -1,10 +1,7 @@
 package com.daqecho.ftsi_analytics.input;
 
 import com.daqecho.ftsi_analytics.data.Channel;
-import de.javasoft.plaf.synthetica.*;
-import java.awt.PopupMenu;
-import java.lang.reflect.Array;
-import java.text.ParseException;
+import com.daqecho.ftsi_analytics.ui.ui;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
@@ -12,8 +9,9 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class Channel_Editor extends javax.swing.JFrame
 {
@@ -390,19 +388,16 @@ public class Channel_Editor extends javax.swing.JFrame
     {
         channel = new Channel();
 
-        try
         {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+
+            try
             {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
-                    break;
-                }
+                UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaStandardLookAndFeel");
+            } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException ex)
+            {
+                Logger.getLogger(ui.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (javax.swing.UnsupportedLookAndFeelException | ParseException ex)
-        {
-            java.util.logging.Logger.getLogger(Channel_Editor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         }
 
     }

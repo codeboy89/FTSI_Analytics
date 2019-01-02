@@ -3,13 +3,16 @@ package com.daqecho.ftsi_analytics.ui;
 import com.daqecho.ftsi_analytics.data.Channel;
 import com.daqecho.ftsi_analytics.input.Input_Channel_Selection;
 import com.daqecho.ftsi_analytics.input.CSV;
-import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileSystemView;
-import de.javasoft.plaf.synthetica.*;
-import java.text.ParseException;
 import java.util.ArrayList;
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UnsupportedLookAndFeelException;
+import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
+import java.text.ParseException;
 import javax.swing.UIManager;
 
 public class ui extends javax.swing.JFrame
@@ -214,23 +217,17 @@ public class ui extends javax.swing.JFrame
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
+        UIManager.put("Synthetica.window.decoration", Boolean.FALSE);
         try
         {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
-                    break;
-                }
-            }
-        } catch (javax.swing.UnsupportedLookAndFeelException | ParseException ex)
+            UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+        } catch (UnsupportedLookAndFeelException | ParseException ex)
         {
-            java.util.logging.Logger.getLogger(ui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(ui.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
 
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

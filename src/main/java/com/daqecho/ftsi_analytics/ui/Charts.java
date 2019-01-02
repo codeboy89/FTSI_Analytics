@@ -5,17 +5,13 @@
  */
 package com.daqecho.ftsi_analytics.ui;
 
-import java.awt.*;
-import static java.awt.BorderLayout.CENTER;
 import javax.swing.*;
-import org.jfree.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
-import org.jfree.data.xy.*;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
-import org.jfree.JCommon.*;
 import org.jfree.chart.ChartPanel;
+
 public class Charts
 {
 
@@ -29,35 +25,35 @@ public class Charts
     private ChartPanel cp;
 
 
-/*
+    /*
     Charts(Container contentPane)
     {
       //  window = contentPane.;
     }
-*/
+     */
     public void setWindow(JFrame window)
     {
         this.window = window;
     }
-    
+
     public ChartPanel create()
     {
-       series = new XYSeries("test");
-       dataset = new XYSeriesCollection(series);
-       chart = ChartFactory.createXYLineChart(title, xAxisLabel, yAxisLabel, dataset);
-       cp = new ChartPanel(chart);
-      
-       return cp;
+        series = new XYSeries("test");
+        dataset = new XYSeriesCollection(series);
+        chart = ChartFactory.createXYLineChart(title, xAxisLabel, yAxisLabel, dataset);
+        cp = new ChartPanel(chart);
+
+        return cp;
     }
-    
-    public void update(double x, double  y)
+
+    public void update(double x, double y)
     {
         series.add(x, y);
     }
-    
+
     public Charts()
     {
-       // gui();
+        // gui();
         create();
     }
 }

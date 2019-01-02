@@ -212,24 +212,13 @@ public class ui extends javax.swing.JFrame
 
     public static void main(String args[])
     {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        UIManager.put("Synthetica.window.decoration", Boolean.FALSE);
         try
         {
             UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
-        } catch (UnsupportedLookAndFeelException | ParseException ex)
+        } catch (ParseException | UnsupportedLookAndFeelException ex)
         {
             Logger.getLogger(ui.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() ->

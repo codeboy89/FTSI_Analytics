@@ -31,10 +31,9 @@
             <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>syntetica3</groupId>
+            <groupId>syntetica</groupId>
             <artifactId>de</artifactId>
-            <version>3</version>
-            <type>jar</type>
+            <version>2</version>
         </dependency>
     </dependencies>
     <properties>

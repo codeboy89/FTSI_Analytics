@@ -3,6 +3,8 @@ package com.daqecho.ftsi_analytics.input;
 import javax.swing.UIManager;
 import com.daqecho.ftsi_analytics.data.Channel;
 import com.daqecho.ftsi_analytics.ui.ui;
+import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -508,8 +510,8 @@ public class Input_Channel_Selection extends javax.swing.JFrame
 
         try
         {
-            UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaStandardLookAndFeel");
-        } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException ex)
+            UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+        } catch (ParseException | UnsupportedLookAndFeelException ex)
         {
             Logger.getLogger(ui.class.getName()).log(Level.SEVERE, null, ex);
         }

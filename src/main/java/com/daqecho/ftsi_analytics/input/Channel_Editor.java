@@ -2,6 +2,7 @@ package com.daqecho.ftsi_analytics.input;
 
 import com.daqecho.ftsi_analytics.data.Channel;
 import com.daqecho.ftsi_analytics.ui.ui;
+import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
@@ -9,6 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.text.ParseException;
 import java.util.HashMap;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -392,8 +394,8 @@ public class Channel_Editor extends javax.swing.JFrame
 
             try
             {
-                UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaStandardLookAndFeel");
-            } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException ex)
+                UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+            } catch (ParseException | UnsupportedLookAndFeelException ex)
             {
                 Logger.getLogger(ui.class.getName()).log(Level.SEVERE, null, ex);
             }

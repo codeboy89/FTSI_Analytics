@@ -1,39 +1,44 @@
 package com.daqecho.ftsi_analytics.input;
 
-import javax.swing.UIManager;
 import com.daqecho.ftsi_analytics.data.Channel;
 import com.daqecho.ftsi_analytics.ui.ui;
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
+import java.awt.Color;
+import java.awt.Rectangle;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 public class Input_Channel_Selection extends javax.swing.JFrame
 {
 
-    private static ArrayList<Channel> tableArray = new ArrayList<Channel>();
+    private ArrayList<Channel> channelList;
 
-    public void setTableArray(ArrayList<Channel> tableArray)
-    {
-        Input_Channel_Selection.tableArray = tableArray;
-        updateTable();
-    }
     private Channel channel;
-    private Channel_Editor ce;
-    private static String name;
-    private static String type;
-    private static String unit;
-    private static int unitRow;
-    private static int typeRow;
-    private static int pos;
-    private static int row = 0;
+    private boolean itemWasModified;
+    private String name;
+    private boolean selectall;
+    private boolean selectnone;
+    private String type;
+    private String unit;
+    private int unitRow;
+    private int typeRow;
+    private int pos = 0;
     private boolean isRowSelected = false;
+    private boolean newRowSelected = false;
+    int movePosCounter = 0;
 
-    public Input_Channel_Selection()
+    public Input_Channel_Selection(ArrayList<Channel> channelList)
     {
         initComponents();
+        ICS_Table_Channels.setSelectionForeground(Color.orange);
+        ICS_Table_Channels.setSelectionBackground(Color.BLACK);
+        ICS_Table_Channels.getSelectionModel().setSelectionInterval(0, 0);
+        this.channelList = channelList;
     }
 
     @SuppressWarnings("unchecked")
@@ -65,6 +70,13 @@ public class Input_Channel_Selection extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Form"); // NOI18N
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
+                OpenedWindowHandler(evt);
+            }
+        });
 
         jPanel1.setBackground(ICS_Button_Add.getBackground());
         jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
@@ -162,8 +174,15 @@ public class Input_Channel_Selection extends javax.swing.JFrame
                 ICS_Table_ChannelsMouseClicked(evt);
             }
         });
+        ICS_Table_Channels.addPropertyChangeListener(new java.beans.PropertyChangeListener()
+        {
+            public void propertyChange(java.beans.PropertyChangeEvent evt)
+            {
+                ICS_Table_ChannelsPropertyChange(evt);
+            }
+        });
         jScrollPane1.setViewportView(ICS_Table_Channels);
-        ICS_Table_Channels.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        ICS_Table_Channels.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         if (ICS_Table_Channels.getColumnModel().getColumnCount() > 0)
         {
             ICS_Table_Channels.getColumnModel().getColumn(0).setResizable(false);
@@ -421,7 +440,11 @@ public class Input_Channel_Selection extends javax.swing.JFrame
 
     private void ICS_Button_BackActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_BackActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_BackActionPerformed
-
+        int i = 2;
+        ICS_Table_Channels.getSelectionModel().setSelectionInterval(i, i);
+        ICS_Label_ChannelCount.scrollRectToVisible(new Rectangle(ICS_Table_Channels.getCellRect(i, 0, true)));
+        ICS_Table_Channels.setSelectionForeground(Color.lightGray);
+        ICS_Table_Channels.setSelectionBackground(Color.ORANGE);
     }//GEN-LAST:event_ICS_Button_BackActionPerformed
 
     private void ICS_Button_FinishActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_FinishActionPerformed
@@ -436,16 +459,19 @@ public class Input_Channel_Selection extends javax.swing.JFrame
 
     private void ICS_Button_AddActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_AddActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_AddActionPerformed
-        ce = new Channel_Editor();
+        channelEditor ce = new channelEditor(this.channelList);
+        System.out.println("Class: InputChannelSelector: ICS_Button_AddActionPerformend() - ChannelList: " + channelList);
         ce.setIcs(this);
         ce.setSelectedPos(ICS_Table_Channels.getRowCount());
         ce.setVisible(true);
+
     }//GEN-LAST:event_ICS_Button_AddActionPerformed
 
     private void ICS_Button_EditActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_EditActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_EditActionPerformed
         if (isSelected())
         {
+            itemWasModified = true;
             editSelectedRow();
         }
 
@@ -453,30 +479,96 @@ public class Input_Channel_Selection extends javax.swing.JFrame
 
     private void ICS_Button_RemoveActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_RemoveActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_RemoveActionPerformed
-        if (isSelected())
+        if (selectall)
         {
-            removeSelectedRow(pos);
+            itemWasModified = true;
+            channelList.clear();
+            itemWasModified = false;
+            updateTable();
+        } else if (ICS_Table_Channels.isRowSelected(ICS_Table_Channels.getSelectedRow()))
+        {
+            itemWasModified = true;
+            removeSelectedRow();
+            itemWasModified = false;
         }
+        selectall = false;
     }//GEN-LAST:event_ICS_Button_RemoveActionPerformed
 
     private void ICS_Button_MoveUpActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_MoveUpActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_MoveUpActionPerformed
+        if (ICS_Table_Channels.isRowSelected(ICS_Table_Channels.getSelectedRow()))
+        {
+            movePosCounter = ICS_Table_Channels.getSelectedRow();
+            int lastIndexOf = channelList.lastIndexOf(channelList.get(movePosCounter));
+            if (lastIndexOf > 0 & lastIndexOf <= channelList.size())
+            {
+                Collections.swap(channelList, lastIndexOf, lastIndexOf - 1);
+                itemWasModified = true;
+                updateChannelList();
+                updateTable();
+                movePosCounter--;
+            }
+        } else
+        {
+            int lastIndexOf = channelList.lastIndexOf(channelList.get(movePosCounter));
+            if (lastIndexOf > 0 & lastIndexOf <= channelList.size())
+            {
+                Collections.swap(channelList, lastIndexOf, lastIndexOf - 1);
+                itemWasModified = true;
+                updateChannelList();
+                updateTable();
+                movePosCounter--;
+            }
+        }
 
     }//GEN-LAST:event_ICS_Button_MoveUpActionPerformed
 
     private void ICS_Button_MoveDownActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_MoveDownActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_MoveDownActionPerformed
 
+        if (ICS_Table_Channels.isRowSelected(ICS_Table_Channels.getSelectedRow()))
+        {
+            int lastIndexOf = channelList.lastIndexOf(channelList.get(movePosCounter));
+            if (lastIndexOf >= 0 & lastIndexOf < channelList.size() - 1)
+            {
+                Collections.swap(channelList, lastIndexOf, lastIndexOf + 1);
+                itemWasModified = true;
+                updateChannelList();
+                updateTable();
+            }
+            movePosCounter++;
+        } else
+        {
+            int lastIndexOf = channelList.lastIndexOf(channelList.get(movePosCounter));
+            if (lastIndexOf >= 0 & lastIndexOf < channelList.size() - 1)
+            {
+                Collections.swap(channelList, lastIndexOf, lastIndexOf + 1);
+                itemWasModified = true;
+                updateChannelList();
+                updateTable();
+            }
+            movePosCounter++;
+        }
+
     }//GEN-LAST:event_ICS_Button_MoveDownActionPerformed
 
     private void ICS_Button_SelectAllActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_SelectAllActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_SelectAllActionPerformed
+        selectall = true;
+        selectnone = false;
+        itemWasModified = true;
+        ICS_Table_Channels.getSelectionModel().clearSelection();
 
+        updateTable();
     }//GEN-LAST:event_ICS_Button_SelectAllActionPerformed
 
     private void ICS_Button_SelectNoneActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_SelectNoneActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_SelectNoneActionPerformed
-
+        selectall = false;
+        selectnone = true;
+        itemWasModified = true;
+        ICS_Table_Channels.getSelectionModel().clearSelection();
+        updateTable();
     }//GEN-LAST:event_ICS_Button_SelectNoneActionPerformed
 
     private void ICS_Button_NextActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_NextActionPerformed
@@ -487,25 +579,110 @@ public class Input_Channel_Selection extends javax.swing.JFrame
     private void ICS_Table_ChannelsMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_ICS_Table_ChannelsMouseClicked
     {//GEN-HEADEREND:event_ICS_Table_ChannelsMouseClicked
         isRowSelected = true;
+        newRowSelected = true;
+        this.pos = ICS_Table_Channels.getSelectedRow();
+        this.movePosCounter = this.pos;
     }//GEN-LAST:event_ICS_Table_ChannelsMouseClicked
+
+    private void OpenedWindowHandler(java.awt.event.WindowEvent evt)//GEN-FIRST:event_OpenedWindowHandler
+    {//GEN-HEADEREND:event_OpenedWindowHandler
+        updateTable();
+    }//GEN-LAST:event_OpenedWindowHandler
+
+    private void ICS_Table_ChannelsPropertyChange(java.beans.PropertyChangeEvent evt)//GEN-FIRST:event_ICS_Table_ChannelsPropertyChange
+    {//GEN-HEADEREND:event_ICS_Table_ChannelsPropertyChange
+
+    }//GEN-LAST:event_ICS_Table_ChannelsPropertyChange
 
     private boolean isSelected()
     {
         return !ICS_Table_Channels.getSelectionModel().isSelectionEmpty() & isRowSelected;
     }
 
-    private static void print(String s)
+    private void print(String s)
     {
         System.out.println(s);
     }
 
-    private static void updateRowCount()
+    private void updateRowCount()
     {
-        ICS_Label_ChannelCount.setText(String.valueOf(ICS_Table_Channels.getRowCount()));
+        this.ICS_Label_ChannelCount.setText(String.valueOf(ICS_Table_Channels.getRowCount()));
         print(String.valueOf("RowCount: " + ICS_Table_Channels.getRowCount()));
     }
 
-    public static ArrayList load()
+    public void insertChannelToArray(Channel createReturnChannel, int SelectedPos)
+    {
+        channelList.add(SelectedPos, createReturnChannel);
+        print("Inserting:" + channelList.toString() + " to array");
+        updateTable();
+    }
+
+    private void editSelectedRow()
+    {
+        this.pos = ICS_Table_Channels.getSelectedRow();
+        channelEditor ce = new channelEditor(channelList);
+        ce.setSelectedPos(pos);
+        ce.load();
+        ce.editRow(pos);
+        ce.setVisible(true);
+    }
+
+    private void removeSelectedRow()
+    {
+        itemWasModified = true;
+        int pos1 = ICS_Table_Channels.getSelectedRow();
+        this.channelList.remove(pos1);
+        print("Removing row : " + ICS_Table_Channels.getSelectedRow());
+
+        System.out.println("Class: Input_Channel_Selection: RemoveSelectedRow() - Arraylist removedArrayList: " + channelList);
+        updateTable();
+    }
+
+    private void updateChannelList()
+    {
+        if (!channelList.isEmpty())
+
+        {
+            if (itemWasModified)
+            {
+                for (int i = 0; i < channelList.size(); i++)
+                {
+                    System.out.println("Element: " + channelList.get(i) + " Pos: " + channelList.get(i).getPos());
+                    channelList.get(i).setTablePos(i + 1);
+                    channelList.get(i).setPos(i);
+
+                    System.out.println("Element Modified: " + channelList.get(i) + " Pos: " + channelList.get(i).getPos());
+
+                }
+                updateTable();
+            }
+        }
+    }
+
+    void addChannelToArray(Channel c)
+    {
+        channelList.add(c);
+        updateTable();
+        print("Adding " + c.toString() + " to Array");
+    }
+
+    public void updateTable()
+    {
+        if (!channelList.isEmpty())
+        {
+            print("Class: InputChannelSelecton: UpdateTable: Updating Table");
+            ICS_Table_Channels.setModel(new ChannelTableModel(this.channelList));
+            updateRowCount();
+        } else
+        {
+            System.out.println("Class: InputChannelSelecton: UpdateTable() - Empty List");
+
+            ICS_Table_Channels.setModel(new ChannelTableModel(this.channelList));
+            updateRowCount();
+        }
+    }
+
+    public void load()
     {
 
         try
@@ -515,70 +692,20 @@ public class Input_Channel_Selection extends javax.swing.JFrame
         {
             Logger.getLogger(ui.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        new Input_Channel_Selection().setVisible(true);
-        return tableArray;
-
-    }
-
-    public void insertChannelToArray(Channel createReturnChannel, int SelectedPos)
-    {
-        tableArray.add(SelectedPos, createReturnChannel);
-        print("Inserting:" + tableArray.toString() + " to array");
-        updateTable();
-    }
-
-    private void editSelectedRow()
-    {
-        Input_Channel_Selection.pos = ICS_Table_Channels.getSelectedRow();
-        channel = new Channel();
-        channel.setName(name);
-        channel.setType(type);
-        channel.setUnit(unit);
-        channel.setPos(pos);
-        channel.setTypeRow(typeRow);
-        channel.setUnitRow(unitRow);
-
-        ce = new Channel_Editor();
-        ce.setVisible(true);
-        ce.editRow(channel);
-    }
-
-    private void removeSelectedRow(int pos)
-    {
-        tableArray.remove(ICS_Table_Channels.convertRowIndexToModel(ICS_Table_Channels.getSelectedRow()));
-        print("Removing row: " + ICS_Table_Channels.convertRowIndexToModel(ICS_Table_Channels.getSelectedRow()));
-        updateTable();
-    }
-
-    void addChannelToArray(Channel c)
-    {
-        tableArray.add(c);
-        updateTable();
-        print("Adding " + c.toString() + " to Array");
-    }
-
-    void removeChannelFromArray(int pos)
-    {
-        print("Removing " + tableArray.get(pos).toString() + " from array");
-        tableArray.remove(pos);
-        updateTable();
-
-    }
-
-    public void updateTable()
-    {
-        if (!tableArray.isEmpty())
+        java.awt.EventQueue.invokeLater(() ->
         {
-            print("updating table");
-            ICS_Table_Channels.setModel(new ChannelTableModel(tableArray));
-            updateRowCount();
-        } else
-        {
-            System.out.println("empty list");
-        }
+            new Input_Channel_Selection(this.channelList).setVisible(true);
+
+        });
+
     }
 
+    // public void setChannels(ArrayList<Channel> Channelss)
+    // {
+    //     Channels = Channelss;
+    //     System.out.println("ICS received Array: " + Channels.toString());
+    //     updateTable();
+    // }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ICS_Button_Add;
     private javax.swing.JButton ICS_Button_Back;
@@ -591,8 +718,8 @@ public class Input_Channel_Selection extends javax.swing.JFrame
     private javax.swing.JButton ICS_Button_Remove;
     private javax.swing.JButton ICS_Button_SelectAll;
     private javax.swing.JButton ICS_Button_SelectNone;
-    private static javax.swing.JLabel ICS_Label_ChannelCount;
-    private static javax.swing.JTable ICS_Table_Channels;
+    private javax.swing.JLabel ICS_Label_ChannelCount;
+    private javax.swing.JTable ICS_Table_Channels;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

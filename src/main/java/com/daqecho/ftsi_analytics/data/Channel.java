@@ -1,7 +1,6 @@
 package com.daqecho.ftsi_analytics.data;
 
-import com.daqecho.ftsi_analytics.input.Channel_Editor;
-import java.util.logging.Logger;
+import java.util.ArrayList;
 
 public class Channel
 {
@@ -9,23 +8,48 @@ public class Channel
     public Channel()
     {
     }
-
     private String name = (String) "";
     private String type = (String) "";
     private String unit = (String) "";
     private int unitRow = 0;
     private int typeRow = 0;
     private int pos = 0;
+    private int tablePos = 0;
 
-    public Channel(Channel_Editor aThis)
+    public Channel(ArrayList<Channel> channelList)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String temp;
+        temp = channelList.toString();
+        String[] s;
+        s = temp.split(",");
+        this.name = s[0];
+        this.type = s[1];
+        this.unit = s[2];
+        this.tablePos = Integer.parseInt(s[3].trim().replaceAll("[^0-9]", ""));
+        this.typeRow = Integer.parseInt(s[4].trim().replaceAll("[^0-9]", ""));
+        this.unitRow = Integer.parseInt(s[5].trim().replaceAll("[^0-9]", ""));
+        this.pos = Integer.parseInt(s[3].trim().replaceAll("[^0-9]", ""));
+    }
+
+    public Channel(String channel)
+    {
+        System.out.println("Class: Channel: Constructor: Channel(String channel) - channel: " + channel);
+        String[] channelSplit = channel.trim().split(",");
+        this.name = channelSplit[0];
+        this.type = channelSplit[1];
+        this.unit = channelSplit[2];
+        System.out.println("pos" + Integer.parseInt(channelSplit[3]));
+        this.tablePos = Integer.parseInt(channelSplit[3].trim().replaceAll("[^0-9]", ""));
+        this.typeRow = Integer.parseInt(channelSplit[4].trim().replaceAll("[^0-9]", ""));
+        this.unitRow = Integer.parseInt(channelSplit[5].trim().replaceAll("[^0-9]", ""));
+        this.pos = Integer.parseInt(channelSplit[6].trim().replaceAll("[^0-9]", ""));
+
     }
 
     @Override
     public String toString()
     {
-        return "{" + name + "," + type + "," + unit + "," + pos + '}';
+        return "{" + name + "," + type + "," + unit + "," + tablePos + "," + unitRow + "," + typeRow + "," + pos + '}';
     }
 
     public String getName()
@@ -86,6 +110,16 @@ public class Channel
     public void setPos(int pos)
     {
         this.pos = pos;
+    }
+
+    public int getTablePos()
+    {
+        return tablePos;
+    }
+
+    public void setTablePos(int tablePos)
+    {
+        this.tablePos = tablePos;
     }
 
 }

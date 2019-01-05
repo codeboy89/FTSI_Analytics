@@ -6,8 +6,8 @@
 package com.daqecho.ftsi_analytics.input;
 
 import com.daqecho.ftsi_analytics.data.Channel;
-import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
+import javax.swing.table.AbstractTableModel;
 
 public class ChannelTableModel extends AbstractTableModel
 {
@@ -52,7 +52,7 @@ public class ChannelTableModel extends AbstractTableModel
         switch (col)
         {
             case 0:
-                temp = ChannelList.get(row).getPos();
+                temp = ChannelList.get(row).getTablePos();
                 break;
             case 1:
                 temp = ChannelList.get(row).getName();

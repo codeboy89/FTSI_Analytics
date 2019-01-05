@@ -1,34 +1,59 @@
 package com.daqecho.ftsi_analytics.ui;
 
 import com.daqecho.ftsi_analytics.data.Channel;
-import com.daqecho.ftsi_analytics.input.Input_Channel_Selection;
 import com.daqecho.ftsi_analytics.input.CSV;
+import com.daqecho.ftsi_analytics.input.Input_Channel_Selection;
+import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
+import java.io.File;
+import java.text.ParseException;
+import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
-import javax.swing.filechooser.FileSystemView;
-import java.util.ArrayList;
-import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.UnsupportedLookAndFeelException;
-import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
-import java.text.ParseException;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.filechooser.FileSystemView;
 
 public class ui extends javax.swing.JFrame
 {
 
-    private ArrayList<Channel> Channels = new ArrayList<>();
+    public ArrayList<Channel> channelList = new ArrayList<>();
+
+    public ArrayList<Channel> getChannelList()
+    {
+        return channelList;
+    }
+
+    public void setChannelList(ArrayList<Channel> channelList)
+    {
+        this.channelList = channelList;
+    }
+
+    public void load()
+    {
+
+        try
+        {
+            UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+        } catch (ParseException | UnsupportedLookAndFeelException ex)
+        {
+            System.out.println(ex);
+        }
+        java.awt.EventQueue.invokeLater(() ->
+        {
+            new ui().setVisible(true);
+
+        });
+    }
 
     private Charts chart;
     private CSV csv;
-    private static String PATH = "C:\\Users\\oilfi\\Documents\\FTSI_Analytics\\FTSI_Analytics\\src\\main\\java\\com\\daqecho\\ftsi_analytics\\datas.csv";
+    private String PATH = "C:\\Users\\oilfi\\Documents\\FTSI_Analytics\\FTSI_Analytics\\src\\main\\java\\com\\daqecho\\ftsi_analytics\\datas.csv";
     private JFileChooser jfc;
 
     public ui()
     {
-        setup();
         initComponents();
+        setup();
     }
 
     @SuppressWarnings("unchecked")
@@ -38,7 +63,7 @@ public class ui extends javax.swing.JFrame
 
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        SetupMenuItem = new javax.swing.JMenuItem();
         openMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
@@ -57,15 +82,15 @@ public class ui extends javax.swing.JFrame
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
 
-        jMenuItem1.setText("Setup");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener()
+        SetupMenuItem.setText("Setup");
+        SetupMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jMenuItem1ActionPerformed(evt);
+                SetupMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(jMenuItem1);
+        fileMenu.add(SetupMenuItem);
 
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("Open");
@@ -87,6 +112,13 @@ public class ui extends javax.swing.JFrame
 
         saveMenuItem.setMnemonic('s');
         saveMenuItem.setText("Save");
+        saveMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                saveMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveMenuItem);
 
         saveAsMenuItem.setMnemonic('a');
@@ -163,26 +195,38 @@ public class ui extends javax.swing.JFrame
 
     private void openMenuItemMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_openMenuItemMouseClicked
     {//GEN-HEADEREND:event_openMenuItemMouseClicked
-        System.out.println("OPEN");
+        System.out.println("Class: UI: openMenuItemMouseClicked() - OPEN");
         fileHelper();
 
     }//GEN-LAST:event_openMenuItemMouseClicked
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_openMenuItemActionPerformed
     {//GEN-HEADEREND:event_openMenuItemActionPerformed
-        System.out.println("OPEN");
+        System.out.println("Class: UI: openMenuItemActionPerformed() - OPEN");
         fileHelper();
     }//GEN-LAST:event_openMenuItemActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem1ActionPerformed
-    {//GEN-HEADEREND:event_jMenuItem1ActionPerformed
-        Input_Channel_Selection input_Channel_Selection = new Input_Channel_Selection();
-        Channels = Input_Channel_Selection.load();
-        if (Channels != null)
+    private void SetupMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SetupMenuItemActionPerformed
+    {//GEN-HEADEREND:event_SetupMenuItemActionPerformed
+        Input_Channel_Selection input_Channel_Selection = new Input_Channel_Selection(channelList);
+        input_Channel_Selection.load();
+
+        if (this.channelList != null)
         {
-            input_Channel_Selection.setTableArray(Channels);
+
+            System.out.println("Class: UI: SetupMenuItemActionPerformed() - Sent channelList: " + this.channelList);
+        } else
+        {
+
+            System.out.println("Class: UI: SetupMenuItemActionPerformed() - Null channelList");
         }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    }//GEN-LAST:event_SetupMenuItemActionPerformed
+
+    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_saveMenuItemActionPerformed
+    {//GEN-HEADEREND:event_saveMenuItemActionPerformed
+        System.out.println("Class: UI: saveMenuItemActionPerformed() - Saving: " + this.channelList);
+    }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void read(Iterable<String[]> records)
     {
@@ -208,26 +252,43 @@ public class ui extends javax.swing.JFrame
         chart = new Charts();
         JPanel jpanel = chart.create();
         setContentPane(jpanel);
-    }
+        Channel Channel = new Channel();
+        Channel.setName("Timer");
+        Channel.setTablePos(1);
+        Channel.setPos(1);
+        Channel.setType("Date/Time");
+        Channel.setUnit("Generic");
+        Channel.setTypeRow(1);
+        Channel.setUnitRow(1);
+        //this.channelList.add(Channel);
+        for (int i = 1; i <= 10; i++)
+        {
+            String name, type, unit;
+            int tablepos, pos, typerow, unitrow;
+            name = "name" + i;
+            type = "type" + i;
+            unit = "unit" + i;
+            if (i == 0)
+            {
+                tablepos = i + 1;
+                pos = i;
+            } else
+            {
+                tablepos = i + 1;
+                pos = i;
 
-    public static void main(String args[])
-    {
-        try
-        {
-            UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
-        } catch (ParseException | UnsupportedLookAndFeelException ex)
-        {
-            Logger.getLogger(ui.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            typerow = 5;
+            unitrow = 1;
+            String c = name + "," + type + "," + unit + "," + pos + "," + unitrow + "," + typerow + "," + tablepos;
+            Channel Test = new Channel(c);
+            this.channelList.add(Test);
         }
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() ->
-        {
-            new ui().setVisible(true);
-        });
+        System.out.println("Class: UI: setup() - Init channelList:" + channelList);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem SetupMenuItem;
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem contentsMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
@@ -237,7 +298,6 @@ public class ui extends javax.swing.JFrame
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;

@@ -3,47 +3,54 @@ package com.daqecho.ftsi_analytics.input;
 import com.daqecho.ftsi_analytics.data.Channel;
 import com.daqecho.ftsi_analytics.ui.ui;
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
-import java.util.Arrays;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.table.DefaultTableModel;
 
-public class Channel_Editor extends javax.swing.JFrame
+public class channelEditor extends javax.swing.JFrame
 {
+
+    private Channel editChannel;
+
+    private boolean edited;
 
     private Input_Channel_Selection ics;
     private Channel ReturnedChannel;
-    private static Channel channel;
+    private ArrayList<Channel> channelList;
     private boolean unitsSelected = false;
     private boolean typesSelected = false;
-    private String TypeValues;
-    private String UnitValues;
     private String SelectedUnit;
     private String SelectedType;
     private String SelectedName = "channel name";
     private List<String> TypeRowlist;
     private List<String> UnitRowList;
-    private List<String> TableArrayList;
     private DefaultTableModel TypeRowTableModel;
     private DefaultTableModel UnitRowTableModel;
     private int SelectedTypeRow;
     private int SelectedUnitRow;
-    private int returnedRow;
     private int SelectedPos;
-    private Object model;
-    private Object table;
     private String[] TypeRowsStrings =
     {
         "Acidity", "Generic", "Density", "Date/Time", "Elapsed Time", "Length", "Mass", "Power", "Percent", "Pressure", "Rate (mass)",
         "Rate (mass/rev)", "Rate (revolutions)", "Rate (volume)", "Ratio", "String", "Temperature", "Velocity", "Viscosity", "Volts", "Volume"
     };
+
+    channelEditor(int pos)
+    {
+        System.out.println("Class: ChannelEditor: Constructor(int pos) - Returned pos: " + pos);
+        initComponents();
+        load();
+        initTypeRows();
+    }
 
     public Input_Channel_Selection getIcs()
     {
@@ -62,13 +69,15 @@ public class Channel_Editor extends javax.swing.JFrame
 
     public void setSelectedPos(int SelectedPos)
     {
-        this.SelectedPos = SelectedPos;
+        this.SelectedPos = SelectedPos + 1;
     }
 
-    public Channel_Editor()
+    public channelEditor(ArrayList<Channel> channelList)
     {
-        load();
+        this.channelList = channelList;
+        System.out.println("Class: ChannelEditor: Contructor(ArrayList<Channel> channelList) - Recieved channelList: " + this.channelList);
         initComponents();
+        load();
         initTypeRows();
     }
 
@@ -96,6 +105,13 @@ public class Channel_Editor extends javax.swing.JFrame
         setForeground(java.awt.Color.darkGray);
         setResizable(false);
         setSize(getPreferredSize());
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
+                OpenedWindowHandler(evt);
+            }
+        });
 
         MainPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         MainPanel.setAlignmentX(0.0F);
@@ -359,13 +375,28 @@ public class Channel_Editor extends javax.swing.JFrame
 
     private void ICS_Button_FinishActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_FinishActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_FinishActionPerformed
-        if (unitsSelected && typesSelected)
+        if (edited)
         {
-            this.SelectedName = CE_Lable_Name.getText();
-            ics.insertChannelToArray(createReturnChannel(), SelectedPos);
+            if (true)
+            {
+                updateChannelList();
+                System.out.println("Class: ChannelEditor: ICS_Button_FinishActionPerformed() - Edited: - Array: " + this.channelList);
+                //ics.updateTable();
+                setVisible(false); //you can't see me!
+                dispose();
+            }
+        } else
+        {
+            if (unitsSelected && typesSelected)
+            {
+                // new ui().setChannelList(this.channelList);
+                this.SelectedName = CE_Lable_Name.getText();
+                System.out.println("Class: ChannelEditor: ICS_Button_FinishActionPerformed() - Array: - Non Edited: " + this.channelList);
+                ics.addChannelToArray(createReturnChannel());
 
-            setVisible(false); //you can't see me!
-            dispose();
+                setVisible(false); //you can't see me!
+                dispose();
+            }
         }
     }//GEN-LAST:event_ICS_Button_FinishActionPerformed
 
@@ -386,20 +417,31 @@ public class Channel_Editor extends javax.swing.JFrame
         unitsSelected = true;
     }//GEN-LAST:event_CE_Table_UnitsMouseClicked
 
-    public static void load()
-    {
-        channel = new Channel();
+    private void OpenedWindowHandler(java.awt.event.WindowEvent evt)//GEN-FIRST:event_OpenedWindowHandler
+    {//GEN-HEADEREND:event_OpenedWindowHandler
+        initTypeRows();
 
+        if (this.SelectedTypeRow >= 0 & this.SelectedUnitRow >= 0)
         {
+            CE_Table_Type.setRowSelectionInterval(SelectedTypeRow, SelectedTypeRow);
+            getSelectedTypeValues();
+            typesSelected = true;
 
-            try
-            {
-                UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
-            } catch (ParseException | UnsupportedLookAndFeelException ex)
-            {
-                Logger.getLogger(ui.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        } else
+        {
+            CE_Table_Type.setRowSelectionInterval(0, 0);
+    }//GEN-LAST:event_OpenedWindowHandler
+    }
 
+    public void load()
+    {
+
+        try
+        {
+            UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+        } catch (ParseException | UnsupportedLookAndFeelException ex)
+        {
+            Logger.getLogger(ui.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -417,8 +459,8 @@ public class Channel_Editor extends javax.swing.JFrame
         CE_Table_Type.setModel(TypeRowTableModel);
         if (ReturnedChannel != null)
         {
-            CE_Table_Type.setRowSelectionInterval(SelectedTypeRow, 1);
-            System.out.println("Channel Returned: " + ReturnedChannel.toString());
+            CE_Table_Type.setRowSelectionInterval(SelectedTypeRow, SelectedTypeRow);
+            System.out.println("Class: ChannelEditor: InitTypeRows() - Returned Channels: " + ReturnedChannel.toString());
         }
     }
 
@@ -432,10 +474,12 @@ public class Channel_Editor extends javax.swing.JFrame
             initUnitRows(dump(Class.forName("com.daqecho.ftsi_analytics.data.types." + lookupTypes(Value)).newInstance()));
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex)
         {
-            Logger.getLogger(Channel_Editor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(channelEditor.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.SelectedTypeRow = CE_Table_Type.getSelectedRow();
         this.SelectedType = Value;
+        System.out.println("Class: ChannelEditor: GetSelectedTypeVallues() - SelectedTypeValues: " + Value);
+
     }
 
     public static String[] dump(Object o)
@@ -448,7 +492,7 @@ public class Channel_Editor extends javax.swing.JFrame
 
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
         {
-            Logger.getLogger(Channel_Editor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(channelEditor.class.getName()).log(Level.SEVERE, null, ex);
         }
         return s;
     }
@@ -543,6 +587,7 @@ public class Channel_Editor extends javax.swing.JFrame
 
     private void initUnitRows(String[] s)
     {
+
         UnitRowList = Arrays.asList(s);
         UnitRowTableModel = (DefaultTableModel) CE_Table_Units.getModel();
         UnitRowTableModel.setRowCount(0);
@@ -553,40 +598,57 @@ public class Channel_Editor extends javax.swing.JFrame
             UnitRowTableModel.addRow(rowData);
         }
         CE_Table_Units.setModel(UnitRowTableModel);
+
     }
 
     private void getSelectedUnitsValues()
     {
         String Value = (String) CE_Table_Units.getValueAt(CE_Table_Units.getSelectedRow(), 0);
         this.SelectedUnit = Value;
+        System.out.println("Class: ChannelEditor: GetSelectedUnitsValues() - SelectedUnitsValues: " + Value);
         this.SelectedUnitRow = CE_Table_Units.getSelectedRow();
     }
 
-    void editRow(Channel channel)
+    void editRow(int SelectedPos)
     {
-        ReturnedChannel = channel;
-        this.SelectedName = channel.getName();
-        this.SelectedType = channel.getType();
-        this.SelectedUnit = channel.getUnit();
-        this.SelectedTypeRow = channel.getTypeRow();
-        this.SelectedUnitRow = channel.getUnitRow();
-        this.SelectedPos = channel.getPos();
-        initTypeRows();
+        this.edited = true;
+        editChannel = channelList.get(SelectedPos);
+        if (editChannel != null)
+        {
+            this.SelectedName = editChannel.getName();
+            this.SelectedType = editChannel.getType();
+            this.SelectedUnit = editChannel.getUnit();
+            this.SelectedTypeRow = editChannel.getTypeRow();
+            this.SelectedUnitRow = editChannel.getUnitRow();
+            this.SelectedPos = editChannel.getPos();
+
+            CE_Lable_Name.setText(this.SelectedName);
+            System.out.println("Class: ChannelEditor: EditRow() - ReturnedChannel: " + editChannel);
+
+        } else
+        {
+            System.out.println("Class: ChannelEditor: EditRow() - ReturnedChannel: NULL");
+        }
     }
 
     private Channel createReturnChannel()
     {
+        this.SelectedName = CE_Lable_Name.getText();
         Channel c = new Channel();
         c.setName(SelectedName);
         c.setType(SelectedType);
         c.setUnit(SelectedUnit);
         c.setTypeRow(SelectedTypeRow);
         c.setUnitRow(SelectedUnitRow);
-        c.setPos(SelectedPos);
-
+        c.setPos(SelectedPos - 1);
+        c.setTablePos(SelectedPos);
         return c;
     }
 
+    private void updateChannelList()
+    {
+        channelList.set(SelectedPos - 1, createReturnChannel());
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane CE_JScrollPane_Type;
     private javax.swing.JScrollPane CE_JScrollPane_Units;

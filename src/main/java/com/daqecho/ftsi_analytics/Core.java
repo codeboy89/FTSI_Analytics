@@ -3,6 +3,7 @@ package com.daqecho.ftsi_analytics;
 import com.daqecho.ftsi_analytics.ui.Charts;
 import com.daqecho.ftsi_analytics.input.CSV;
 import com.daqecho.ftsi_analytics.*;
+import com.daqecho.ftsi_analytics.ui.ui;
 import com.opencsv.CSVReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,32 +16,10 @@ import java.util.List;
 public class Core
 {
 
-    private static final String PATH = "C:\\Users\\oilfi\\Documents\\FTSI_Analytics\\FTSI_Analytics\\src\\main\\java\\com\\daqecho\\ftsi_analytics\\datas.csv";
-    private static CSV csv;
-    private static Charts charts;
-
-    private static void read(Iterable<String[]> records)
+    public static void main(String[] args)
     {
-        Thread thread = new Thread()
-        {
-            @Override
-            public void run()
-            {
-                for (String[] record : records)
-                {
-                    charts.update(Double.parseDouble(record[0]), Double.parseDouble(record[2]));
-                }
-            }
+        ui UI = new ui();
+        UI.load();
 
-        };
-        thread.start();
-
-    }
-
-    public static void mains(String[] args) throws IOException
-    {
-        csv = new CSV(PATH);
-        charts = new Charts();
-        read(csv.load());
     }
 }

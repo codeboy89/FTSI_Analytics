@@ -130,7 +130,6 @@ public class Input_Channel_Selection extends javax.swing.JFrame
         jScrollPane1.setViewportBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
-        ICS_Table_Channels.setAutoCreateRowSorter(true);
         ICS_Table_Channels.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
@@ -162,7 +161,7 @@ public class Input_Channel_Selection extends javax.swing.JFrame
             }
         });
         ICS_Table_Channels.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        ICS_Table_Channels.setColumnSelectionAllowed(true);
+        ICS_Table_Channels.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ICS_Table_Channels.setFillsViewportHeight(true);
         ICS_Table_Channels.setInheritsPopupMenu(true);
         ICS_Table_Channels.setName("ICS_Table_Channels"); // NOI18N
@@ -440,11 +439,7 @@ public class Input_Channel_Selection extends javax.swing.JFrame
 
     private void ICS_Button_BackActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_BackActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_BackActionPerformed
-        int i = 2;
-        ICS_Table_Channels.getSelectionModel().setSelectionInterval(i, i);
-        ICS_Label_ChannelCount.scrollRectToVisible(new Rectangle(ICS_Table_Channels.getCellRect(i, 0, true)));
-        ICS_Table_Channels.setSelectionForeground(Color.lightGray);
-        ICS_Table_Channels.setSelectionBackground(Color.ORANGE);
+
     }//GEN-LAST:event_ICS_Button_BackActionPerformed
 
     private void ICS_Button_FinishActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_FinishActionPerformed
@@ -520,7 +515,10 @@ public class Input_Channel_Selection extends javax.swing.JFrame
                 movePosCounter--;
             }
         }
-
+        int i = movePosCounter;
+        ICS_Table_Channels.getSelectionModel().setSelectionInterval(i, i);
+        ICS_Label_ChannelCount.scrollRectToVisible(new Rectangle(ICS_Table_Channels.getCellRect(i, 0, true)));
+        ICS_Table_Channels.setSelectionForeground(Color.ORANGE);
     }//GEN-LAST:event_ICS_Button_MoveUpActionPerformed
 
     private void ICS_Button_MoveDownActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_MoveDownActionPerformed
@@ -549,7 +547,10 @@ public class Input_Channel_Selection extends javax.swing.JFrame
             }
             movePosCounter++;
         }
-
+        int i = movePosCounter;
+        ICS_Table_Channels.getSelectionModel().setSelectionInterval(i, i);
+        ICS_Label_ChannelCount.scrollRectToVisible(new Rectangle(ICS_Table_Channels.getCellRect(i, 0, true)));
+        ICS_Table_Channels.setSelectionForeground(Color.ORANGE);
     }//GEN-LAST:event_ICS_Button_MoveDownActionPerformed
 
     private void ICS_Button_SelectAllActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_SelectAllActionPerformed
@@ -557,9 +558,11 @@ public class Input_Channel_Selection extends javax.swing.JFrame
         selectall = true;
         selectnone = false;
         itemWasModified = true;
-        ICS_Table_Channels.getSelectionModel().clearSelection();
+        ICS_Table_Channels.selectAll();
 
-        updateTable();
+        ICS_Table_Channels.setSelectionForeground(Color.orange);
+
+        /// updateTable();
     }//GEN-LAST:event_ICS_Button_SelectAllActionPerformed
 
     private void ICS_Button_SelectNoneActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_SelectNoneActionPerformed
@@ -587,6 +590,10 @@ public class Input_Channel_Selection extends javax.swing.JFrame
     private void OpenedWindowHandler(java.awt.event.WindowEvent evt)//GEN-FIRST:event_OpenedWindowHandler
     {//GEN-HEADEREND:event_OpenedWindowHandler
         updateTable();
+        int i = 0;
+        ICS_Table_Channels.getSelectionModel().setSelectionInterval(i, i);
+        ICS_Label_ChannelCount.scrollRectToVisible(new Rectangle(ICS_Table_Channels.getCellRect(i, 0, true)));
+        ICS_Table_Channels.setSelectionForeground(Color.ORANGE);
     }//GEN-LAST:event_OpenedWindowHandler
 
     private void ICS_Table_ChannelsPropertyChange(java.beans.PropertyChangeEvent evt)//GEN-FIRST:event_ICS_Table_ChannelsPropertyChange

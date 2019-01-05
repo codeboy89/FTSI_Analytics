@@ -259,7 +259,6 @@
               <SubComponents>
                 <Component class="javax.swing.JTable" name="ICS_Table_Channels">
                   <Properties>
-                    <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="0">
                         <Column editable="false" title="Pos" type="java.lang.String"/>
@@ -293,7 +292,9 @@
                         </Column>
                       </TableColumnModel>
                     </Property>
-                    <Property name="columnSelectionAllowed" type="boolean" value="true"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Default Cursor"/>
+                    </Property>
                     <Property name="fillsViewportHeight" type="boolean" value="true"/>
                     <Property name="inheritsPopupMenu" type="boolean" value="true"/>
                     <Property name="name" type="java.lang.String" value="ICS_Table_Channels" noResource="true"/>

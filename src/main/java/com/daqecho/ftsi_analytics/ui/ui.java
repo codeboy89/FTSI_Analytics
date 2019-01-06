@@ -69,7 +69,7 @@ public class ui extends javax.swing.JFrame
         saveAsMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
+        UI_NewChartMenuItem = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
         pasteMenuItem = new javax.swing.JMenuItem();
         deleteMenuItem = new javax.swing.JMenuItem();
@@ -141,10 +141,25 @@ public class ui extends javax.swing.JFrame
 
         editMenu.setMnemonic('e');
         editMenu.setText("Edit");
+        editMenu.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                editMenuActionPerformed(evt);
+            }
+        });
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
+        UI_NewChartMenuItem.setActionCommand("NewChart");
+        UI_NewChartMenuItem.setLabel("New Chart");
+        UI_NewChartMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                UI_NewChartMenuItemActionPerformed(evt);
+            }
+        });
+        editMenu.add(UI_NewChartMenuItem);
+        UI_NewChartMenuItem.getAccessibleContext().setAccessibleName("New Chart");
 
         copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Copy");
@@ -228,6 +243,18 @@ public class ui extends javax.swing.JFrame
         System.out.println("Class: UI: saveMenuItemActionPerformed() - Saving: " + this.channelList);
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
+    private void editMenuActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_editMenuActionPerformed
+    {//GEN-HEADEREND:event_editMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editMenuActionPerformed
+
+    private void UI_NewChartMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_UI_NewChartMenuItemActionPerformed
+    {//GEN-HEADEREND:event_UI_NewChartMenuItemActionPerformed
+        chart = new Charts();
+        JPanel jpanel = chart.create();
+        setContentPane(jpanel);
+    }//GEN-LAST:event_UI_NewChartMenuItemActionPerformed
+
     private void read(Iterable<String[]> records)
     {
 
@@ -249,9 +276,6 @@ public class ui extends javax.swing.JFrame
     private void setup()
     {
 
-        chart = new Charts();
-        JPanel jpanel = chart.create();
-        setContentPane(jpanel);
         Channel Channel = new Channel();
         Channel.setName("Timer");
         Channel.setTablePos(1);
@@ -289,10 +313,10 @@ public class ui extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem SetupMenuItem;
+    private javax.swing.JMenuItem UI_NewChartMenuItem;
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem contentsMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;

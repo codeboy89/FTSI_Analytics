@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.daqecho.ftsi_analytics.ui;
+package com.daqecho.ftsi_analytics.ui.chart.setup;
 
 /**
  *
  * @author oilfi
  */
-public interface ChartsInterface
+public interface ChartInterface
 {
 
-    public void SetupChartProperties(NewChartEditorProperties aThis);
+    public void SetupChartAxis();
 
-    public void SetupChartProperties();
+    public void SetupChartProperties( ChartProperties chartProperties );
 
 }

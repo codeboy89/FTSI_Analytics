@@ -3,15 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.daqecho.ftsi_analytics.ui;
+package com.daqecho.ftsi_analytics.ui.chart;
 
+import com.daqecho.ftsi_analytics.input.channel.Channel;
+import com.daqecho.ftsi_analytics.ui.chart.setup.ChartAxis;
+import com.daqecho.ftsi_analytics.ui.chart.setup.ChartInterface;
+import com.daqecho.ftsi_analytics.ui.chart.setup.ChartProperties;
+import com.daqecho.ftsi_analytics.ui.chart.setup.NewChartEditorProperties;
+import com.daqecho.ftsi_analytics.ui.ui;
 import java.awt.Color;
-import javafx.scene.chart.NumberAxis;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.time.Day;
 import org.jfree.data.time.RegularTimePeriod;
@@ -20,50 +27,66 @@ import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-public class Charts implements ChartsInterface
+public class Charts implements ChartInterface
 {
 
-    public Charts( NewChartEditorProperties ncep )
+    public Charts( ArrayList<ChartProperties> ChartPropertiesArrayList , ArrayList<ChartAxis> ChartAxisArrayList , ArrayList<Channel> ChannelArrayList )
     {
-        this.ncep = ncep;
+        ncep = new NewChartEditorProperties(ChartPropertiesArrayList , ChartAxisArrayList , ChannelArrayList);
+        ncep.setUi(ui);
+        ncep.Show();
     }
 
-    Charts( Charts chart )
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private NumberAxis numberAxis;
-    private XYSeriesCollection xYDataset;
-    private XYPlot plot;
-    private int datasetIndex = 0;
-    private final NewChartEditorProperties ncep;
-    public String chartTitle;
-    private String domainAxisLabel = "x axis";
-    private String RangeAxisLabel = "y axie";
-    private double TickMarksEvery;
-    private double GridLinesEverys;
-    private double defaultVisibleTime;
-    private int numYAxes;
-    private boolean legend = true;
-    private boolean toolTips = true;
-    private boolean url = false;
+    private ui ui;
+    private ChartProperties chartProperties;
+    private NewChartEditorProperties ncep;
     private XYSeries series;
     private XYSeriesCollection dataset;
     private JFreeChart chart;
     private JFrame window;
     private ChartPanel cp;
+    private NumberAxis numberAxis;
+    private XYSeriesCollection xYDataset;
+    private XYPlot plot;
+    private String chartTitle;
+    private String domainAxisLabel = "x axis";
+    private String RangeAxisLabel = "y axie";
+    private int datasetIndex = 0;
+    private int numYAxes;
     private int seriesNum = 0;
+    private double TickMarksEvery;
+    private double GridLinesEverys;
+    private double defaultVisibleTime;
+    private boolean legend = true;
+    private boolean toolTips = true;
+    private boolean url = false;
+
+    @Override
+    public void SetupChartAxis()
+    {
+    }
+
+    @Override
+    public void SetupChartProperties( ChartProperties chartPropertiesReturned )
+    {
+        new ui().setChartProperties(this.chartProperties);
+        this.chartProperties = chartPropertiesReturned;
+        this.chartTitle = this.chartProperties.getChartTitle();
+        this.TickMarksEvery = this.chartProperties.getTickMarksInterval();
+        this.GridLinesEverys = this.chartProperties.getGridLinesInterval();
+        this.defaultVisibleTime = this.chartProperties.getDefaultVisibleTime();
+        this.numYAxes = this.chartProperties.getNumYAxis();
+        System.out.println("Class: Charts: SetupChartProperties: " + this.chartProperties.toString());
+    }
 
     private void updateCollection( XYSeries series )
     {
         xYDataset.addSeries(series);
     }
 
-    @Override
-    public void SetupChartProperties()
+    public void setUI( ui aThis )
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.ui = aThis;
     }
 
     public void setWindow( JFrame window )
@@ -108,23 +131,6 @@ public class Charts implements ChartsInterface
         ChartUtils.applyCurrentTheme(chart);
 
         return cp;
-    }
-
-    @Override
-    public void SetupChartProperties( NewChartEditorProperties newChartEditorProperties )
-    {
-        this.chartTitle = newChartEditorProperties.getChartTitle();
-        this.TickMarksEvery = newChartEditorProperties.getTickMarksEvery();
-        this.GridLinesEverys = newChartEditorProperties.getGridLinesEverys();
-        this.defaultVisibleTime = newChartEditorProperties.getDefaultVisibleTime();
-        this.numYAxes = newChartEditorProperties.getNumYAxes();
-        System.out.println("Class: Charts: SetupChartProperties: " + newChartEditorProperties.toString());
-    }
-
-    public Charts()
-    {
-        ncep = new NewChartEditorProperties(this);
-        ncep.Show();
     }
 
     public void update( double x , double y )

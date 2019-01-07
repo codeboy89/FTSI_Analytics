@@ -1,9 +1,12 @@
 
 package com.daqecho.ftsi_analytics.ui;
 
-import com.daqecho.ftsi_analytics.data.Channel;
 import com.daqecho.ftsi_analytics.input.CSV;
-import com.daqecho.ftsi_analytics.input.Input_Channel_Selection;
+import com.daqecho.ftsi_analytics.input.channel.Channel;
+import com.daqecho.ftsi_analytics.input.channel.Input_Channel_Selection;
+import com.daqecho.ftsi_analytics.ui.chart.Charts;
+import com.daqecho.ftsi_analytics.ui.chart.setup.ChartAxis;
+import com.daqecho.ftsi_analytics.ui.chart.setup.ChartProperties;
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 import java.io.File;
 import java.text.ParseException;
@@ -17,15 +20,20 @@ import javax.swing.filechooser.FileSystemView;
 public class ui extends javax.swing.JFrame
 {
 
+    private ChartProperties chartProperties;
+    private ChartAxis chartAxis;
     private Charts chart;
-
     private CSV csv;
-
     private String PATH = "C:\\Users\\oilfi\\Documents\\FTSI_Analytics\\FTSI_Analytics\\src\\main\\java\\com\\daqecho\\ftsi_analytics\\datas.csv";
-
     private JFileChooser jfc;
-
     public ArrayList<Channel> channelList = new ArrayList<>();
+    public ArrayList<ChartProperties> ChartProperties = new ArrayList<>();
+    public ArrayList<ChartAxis> ChartAxis = new ArrayList<>();
+
+    public void setAxisProperties( ChartAxis chartAxis )
+    {
+        this.chartAxis = chartAxis;
+    }
 
     public ArrayList<Channel> getChannelList()
     {
@@ -35,6 +43,31 @@ public class ui extends javax.swing.JFrame
     public void setChannelList( ArrayList<Channel> channelList )
     {
         this.channelList = channelList;
+    }
+
+    public ArrayList<ChartAxis> getChartAxis()
+    {
+        return ChartAxis;
+    }
+
+    public void setChartAxises( ArrayList<ChartAxis> chartAxises )
+    {
+        this.ChartAxis = chartAxises;
+    }
+
+    public void setChartProperties( ChartProperties chartProperties )
+    {
+        this.chartProperties = chartProperties;
+    }
+
+    public ArrayList<ChartProperties> getChartProperties()
+    {
+        return ChartProperties;
+    }
+
+    public void setChartProperties( ArrayList<ChartProperties> ChartProperties )
+    {
+        this.ChartProperties = ChartProperties;
     }
 
     public void load()
@@ -244,7 +277,9 @@ public class ui extends javax.swing.JFrame
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_saveMenuItemActionPerformed
     {//GEN-HEADEREND:event_saveMenuItemActionPerformed
-        System.out.println("Class: UI: saveMenuItemActionPerformed() - Saving: " + this.channelList);
+        System.out.println("Class: UI: saveMenuItemActionPerformed() - Saving: ChannelList: " + this.channelList);
+        System.out.println("Class: UI: saveMenuItemActionPerformed() - Saving: ChartAxis: " + this.ChartAxis);
+        System.out.println("Class: UI: saveMenuItemActionPerformed() - Saving: ChartProperties: " + this.ChartProperties);
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void editMenuActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_editMenuActionPerformed
@@ -254,7 +289,8 @@ public class ui extends javax.swing.JFrame
 
     private void UI_NewChartMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_UI_NewChartMenuItemActionPerformed
     {//GEN-HEADEREND:event_UI_NewChartMenuItemActionPerformed
-        chart = new Charts();
+        chart = new Charts(ChartProperties , ChartAxis , channelList);
+        chart.setUI(this);
         JPanel jpanel = chart.create();
         setContentPane(jpanel);
     }//GEN-LAST:event_UI_NewChartMenuItemActionPerformed

@@ -1,6 +1,6 @@
 package com.daqecho.ftsi_analytics;
 
-import com.daqecho.ftsi_analytics.ui.Charts;
+import com.daqecho.ftsi_analytics.ui.chart.Charts;
 import com.daqecho.ftsi_analytics.input.CSV;
 import com.daqecho.ftsi_analytics.*;
 import com.daqecho.ftsi_analytics.ui.ui;

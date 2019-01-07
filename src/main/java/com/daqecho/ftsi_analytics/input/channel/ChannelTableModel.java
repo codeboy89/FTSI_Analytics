@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.daqecho.ftsi_analytics.input;
+package com.daqecho.ftsi_analytics.input.channel;
 
-import com.daqecho.ftsi_analytics.data.Channel;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 

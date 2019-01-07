@@ -1,6 +1,6 @@
-package com.daqecho.ftsi_analytics.input;
 
-import com.daqecho.ftsi_analytics.data.Channel;
+package com.daqecho.ftsi_analytics.input.channel;
+
 import com.daqecho.ftsi_analytics.ui.ui;
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 import java.lang.reflect.InvocationTargetException;
@@ -39,12 +39,12 @@ public class channelEditor extends javax.swing.JFrame
     private int SelectedUnitRow;
     private int SelectedPos;
     private String[] TypeRowsStrings =
-    {
-        "Acidity", "Generic", "Density", "Date/Time", "Elapsed Time", "Length", "Mass", "Power", "Percent", "Pressure", "Rate (mass)",
-        "Rate (mass/rev)", "Rate (revolutions)", "Rate (volume)", "Ratio", "String", "Temperature", "Velocity", "Viscosity", "Volts", "Volume"
-    };
+        {
+        "Acidity" , "Generic" , "Density" , "Date/Time" , "Elapsed Time" , "Length" , "Mass" , "Power" , "Percent" , "Pressure" , "Rate (mass)" ,
+        "Rate (mass/rev)" , "Rate (revolutions)" , "Rate (volume)" , "Ratio" , "String" , "Temperature" , "Velocity" , "Viscosity" , "Volts" , "Volume"
+        };
 
-    channelEditor(int pos)
+    channelEditor( int pos )
     {
         System.out.println("Class: ChannelEditor: Constructor(int pos) - Returned pos: " + pos);
         initComponents();
@@ -57,7 +57,7 @@ public class channelEditor extends javax.swing.JFrame
         return ics;
     }
 
-    public void setIcs(Input_Channel_Selection ics)
+    public void setIcs( Input_Channel_Selection ics )
     {
         this.ics = ics;
     }
@@ -67,12 +67,12 @@ public class channelEditor extends javax.swing.JFrame
         return SelectedPos;
     }
 
-    public void setSelectedPos(int SelectedPos)
+    public void setSelectedPos( int SelectedPos )
     {
         this.SelectedPos = SelectedPos + 1;
     }
 
-    public channelEditor(ArrayList<Channel> channelList)
+    public channelEditor( ArrayList<Channel> channelList )
     {
         this.channelList = channelList;
         System.out.println("Class: ChannelEditor: Contructor(ArrayList<Channel> channelList) - Recieved channelList: " + this.channelList);
@@ -81,7 +81,7 @@ public class channelEditor extends javax.swing.JFrame
         initTypeRows();
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings( "unchecked" )
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
     {
@@ -375,20 +375,20 @@ public class channelEditor extends javax.swing.JFrame
 
     private void ICS_Button_FinishActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_FinishActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_FinishActionPerformed
-        if (edited)
-        {
-            if (true)
+        if ( edited )
             {
+            if ( true )
+                {
                 updateChannelList();
                 System.out.println("Class: ChannelEditor: ICS_Button_FinishActionPerformed() - Edited: - Array: " + this.channelList);
                 //ics.updateTable();
                 setVisible(false); //you can't see me!
                 dispose();
-            }
-        } else
-        {
-            if (unitsSelected && typesSelected)
+                }
+            } else
             {
+            if ( unitsSelected && typesSelected )
+                {
                 // new ui().setChannelList(this.channelList);
                 this.SelectedName = CE_Lable_Name.getText();
                 System.out.println("Class: ChannelEditor: ICS_Button_FinishActionPerformed() - Array: - Non Edited: " + this.channelList);
@@ -396,8 +396,8 @@ public class channelEditor extends javax.swing.JFrame
 
                 setVisible(false); //you can't see me!
                 dispose();
+                }
             }
-        }
     }//GEN-LAST:event_ICS_Button_FinishActionPerformed
 
     private void CE_Table_TypePropertyChange(java.beans.PropertyChangeEvent evt)//GEN-FIRST:event_CE_Table_TypePropertyChange
@@ -421,15 +421,15 @@ public class channelEditor extends javax.swing.JFrame
     {//GEN-HEADEREND:event_OpenedWindowHandler
         initTypeRows();
 
-        if (this.SelectedTypeRow >= 0 & this.SelectedUnitRow >= 0)
-        {
-            CE_Table_Type.setRowSelectionInterval(SelectedTypeRow, SelectedTypeRow);
+        if ( this.SelectedTypeRow >= 0 & this.SelectedUnitRow >= 0 )
+            {
+            CE_Table_Type.setRowSelectionInterval(SelectedTypeRow , SelectedTypeRow);
             getSelectedTypeValues();
             typesSelected = true;
 
-        } else
-        {
-            CE_Table_Type.setRowSelectionInterval(0, 0);
+            } else
+            {
+            CE_Table_Type.setRowSelectionInterval(0 , 0);
     }//GEN-LAST:event_OpenedWindowHandler
     }
 
@@ -437,31 +437,31 @@ public class channelEditor extends javax.swing.JFrame
     {
 
         try
-        {
+            {
             UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
-        } catch (ParseException | UnsupportedLookAndFeelException ex)
-        {
-            Logger.getLogger(ui.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            } catch ( ParseException | UnsupportedLookAndFeelException ex )
+            {
+            Logger.getLogger(ui.class.getName()).log(Level.SEVERE , null , ex);
+            }
 
     }
 
     private void initTypeRows()
     {
         TypeRowlist = Arrays.asList(TypeRowsStrings);
-        TypeRowTableModel = (DefaultTableModel) CE_Table_Type.getModel();
-        Object rowData[] = new Object[1];
-        for (int i = 0; i < TypeRowlist.size(); i++)
-        {
-            rowData[0] = TypeRowlist.get(i);
+        TypeRowTableModel = ( DefaultTableModel ) CE_Table_Type.getModel();
+        Object rowData[] = new Object[ 1 ];
+        for ( int i = 0 ; i < TypeRowlist.size() ; i++ )
+            {
+            rowData[ 0 ] = TypeRowlist.get(i);
             TypeRowTableModel.addRow(rowData);
-        }
+            }
         CE_Table_Type.setModel(TypeRowTableModel);
-        if (ReturnedChannel != null)
-        {
-            CE_Table_Type.setRowSelectionInterval(SelectedTypeRow, SelectedTypeRow);
+        if ( ReturnedChannel != null )
+            {
+            CE_Table_Type.setRowSelectionInterval(SelectedTypeRow , SelectedTypeRow);
             System.out.println("Class: ChannelEditor: InitTypeRows() - Returned Channels: " + ReturnedChannel.toString());
-        }
+            }
     }
 
     private void getSelectedTypeValues()
@@ -469,152 +469,152 @@ public class channelEditor extends javax.swing.JFrame
         Object xyz = null;
         String Value = null;
         try
-        {
-            Value = (String) CE_Table_Type.getValueAt(CE_Table_Type.getSelectedRow(), 0);
+            {
+            Value = ( String ) CE_Table_Type.getValueAt(CE_Table_Type.getSelectedRow() , 0);
             initUnitRows(dump(Class.forName("com.daqecho.ftsi_analytics.data.types." + lookupTypes(Value)).newInstance()));
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex)
-        {
-            Logger.getLogger(channelEditor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            } catch ( ClassNotFoundException | InstantiationException | IllegalAccessException ex )
+            {
+            Logger.getLogger(channelEditor.class.getName()).log(Level.SEVERE , null , ex);
+            }
         this.SelectedTypeRow = CE_Table_Type.getSelectedRow();
         this.SelectedType = Value;
         System.out.println("Class: ChannelEditor: GetSelectedTypeVallues() - SelectedTypeValues: " + Value);
 
     }
 
-    public static String[] dump(Object o)
+    public static String[] dump( Object o )
     {
         String[] s = null;
         Method[] m = o.getClass().getDeclaredMethods();
         try
-        {
-            s = (String[]) m[0].invoke(o, null);
+            {
+            s = ( String[] ) m[ 0 ].invoke(o , null);
 
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
-        {
-            Logger.getLogger(channelEditor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            } catch ( IllegalAccessException | IllegalArgumentException | InvocationTargetException ex )
+            {
+            Logger.getLogger(channelEditor.class.getName()).log(Level.SEVERE , null , ex);
+            }
         return s;
     }
 
-    private String lookupUnits(String Value)
+    private String lookupUnits( String Value )
     {
 
         String[] Name =
-        {
-            "Acidity",
-            "Generic",
-            "Density",
-            "Date/Time",
-            "Elapsed Time",
-            "Length",
-            "Mass",
-            "Power",
-            "Percent",
-            "Pressure",
-            "Rate (mass)",
-            "Rate (mass/rev)",
-            "Rate (revolutions)",
-            "Rate (volume)",
-            "Ratio",
-            "String",
-            "Temperature",
-            "Velocity",
-            "Viscosity",
-            "Volts",
+            {
+            "Acidity" ,
+            "Generic" ,
+            "Density" ,
+            "Date/Time" ,
+            "Elapsed Time" ,
+            "Length" ,
+            "Mass" ,
+            "Power" ,
+            "Percent" ,
+            "Pressure" ,
+            "Rate (mass)" ,
+            "Rate (mass/rev)" ,
+            "Rate (revolutions)" ,
+            "Rate (volume)" ,
+            "Ratio" ,
+            "String" ,
+            "Temperature" ,
+            "Velocity" ,
+            "Viscosity" ,
+            "Volts" ,
             "Volume"
-        };
+            };
 
         String[] ClassName =
-        {
-            "Acidity",
-            "Generic",
-            "Density",
-            "DateTime",
-            "ElapsedTime",
-            "Length",
-            "Mass",
-            "Power",
-            "Percent",
-            "Pressure",
-            "RateMass",
-            "RateMassRev",
-            "RateRevolutions",
-            "RateVolume",
-            "Ratio",
-            "String",
-            "Temperature",
-            "Velocity",
-            "Viscosity",
-            "Volts",
+            {
+            "Acidity" ,
+            "Generic" ,
+            "Density" ,
+            "DateTime" ,
+            "ElapsedTime" ,
+            "Length" ,
+            "Mass" ,
+            "Power" ,
+            "Percent" ,
+            "Pressure" ,
+            "RateMass" ,
+            "RateMassRev" ,
+            "RateRevolutions" ,
+            "RateVolume" ,
+            "Ratio" ,
+            "String" ,
+            "Temperature" ,
+            "Velocity" ,
+            "Viscosity" ,
+            "Volts" ,
             "Volume"
-        };
+            };
 
-        HashMap<String, String> hmap = new HashMap<>();
+        HashMap<String , String> hmap = new HashMap<>();
 
-        for (int i = 0; i < Name.length; i++)
-        {
-            hmap.put(Name[i], ClassName[i]);
-        }
+        for ( int i = 0 ; i < Name.length ; i++ )
+            {
+            hmap.put(Name[ i ] , ClassName[ i ]);
+            }
 
         return hmap.get(Value);
     }
 
-    private String lookupTypes(String Value)
+    private String lookupTypes( String Value )
     {
 
         String[] Name =
-        {
-            "Acidity", "Generic", "Density", "Date/Time", "Elapsed Time", "Length", "Mass", "Power", "Percent", "Pressure", "Rate (mass)", "Rate (mass/rev)",
-            "Rate (revolutions)", "Rate (volume)", "Ratio", "String", "Temperature", "Velocity", "Viscosity", "Volts", "Volume"
-        };
+            {
+            "Acidity" , "Generic" , "Density" , "Date/Time" , "Elapsed Time" , "Length" , "Mass" , "Power" , "Percent" , "Pressure" , "Rate (mass)" , "Rate (mass/rev)" ,
+            "Rate (revolutions)" , "Rate (volume)" , "Ratio" , "String" , "Temperature" , "Velocity" , "Viscosity" , "Volts" , "Volume"
+            };
 
         String[] ClassName =
-        {
-            "Acidity", "Generic", "Density", "DateTime", "ElapsedTime", "Length", "Mass", "Power", "Percent", "Pressure", "RateMass", "RateMassRev", "RateRevolutions",
-            "RateVolume", "Ratio", "String", "Temperature", "Velocity", "Viscosity", "Volts", "Volume"
-        };
+            {
+            "Acidity" , "Generic" , "Density" , "DateTime" , "ElapsedTime" , "Length" , "Mass" , "Power" , "Percent" , "Pressure" , "RateMass" , "RateMassRev" , "RateRevolutions" ,
+            "RateVolume" , "Ratio" , "String" , "Temperature" , "Velocity" , "Viscosity" , "Volts" , "Volume"
+            };
 
-        HashMap<String, String> hmap = new HashMap<>();
+        HashMap<String , String> hmap = new HashMap<>();
 
-        for (int i = 0; i < Name.length; i++)
-        {
-            hmap.put(Name[i], ClassName[i]);
-        }
+        for ( int i = 0 ; i < Name.length ; i++ )
+            {
+            hmap.put(Name[ i ] , ClassName[ i ]);
+            }
 
         return hmap.get(Value);
     }
 
-    private void initUnitRows(String[] s)
+    private void initUnitRows( String[] s )
     {
 
         UnitRowList = Arrays.asList(s);
-        UnitRowTableModel = (DefaultTableModel) CE_Table_Units.getModel();
+        UnitRowTableModel = ( DefaultTableModel ) CE_Table_Units.getModel();
         UnitRowTableModel.setRowCount(0);
-        Object rowData[] = new Object[1];
-        for (int i = 0; i < UnitRowList.size(); i++)
-        {
-            rowData[0] = UnitRowList.get(i);
+        Object rowData[] = new Object[ 1 ];
+        for ( int i = 0 ; i < UnitRowList.size() ; i++ )
+            {
+            rowData[ 0 ] = UnitRowList.get(i);
             UnitRowTableModel.addRow(rowData);
-        }
+            }
         CE_Table_Units.setModel(UnitRowTableModel);
 
     }
 
     private void getSelectedUnitsValues()
     {
-        String Value = (String) CE_Table_Units.getValueAt(CE_Table_Units.getSelectedRow(), 0);
+        String Value = ( String ) CE_Table_Units.getValueAt(CE_Table_Units.getSelectedRow() , 0);
         this.SelectedUnit = Value;
         System.out.println("Class: ChannelEditor: GetSelectedUnitsValues() - SelectedUnitsValues: " + Value);
         this.SelectedUnitRow = CE_Table_Units.getSelectedRow();
     }
 
-    void editRow(int SelectedPos)
+    void editRow( int SelectedPos )
     {
         this.edited = true;
         editChannel = channelList.get(SelectedPos);
-        if (editChannel != null)
-        {
+        if ( editChannel != null )
+            {
             this.SelectedName = editChannel.getName();
             this.SelectedType = editChannel.getType();
             this.SelectedUnit = editChannel.getUnit();
@@ -625,10 +625,10 @@ public class channelEditor extends javax.swing.JFrame
             CE_Lable_Name.setText(this.SelectedName);
             System.out.println("Class: ChannelEditor: EditRow() - ReturnedChannel: " + editChannel);
 
-        } else
-        {
+            } else
+            {
             System.out.println("Class: ChannelEditor: EditRow() - ReturnedChannel: NULL");
-        }
+            }
     }
 
     private Channel createReturnChannel()
@@ -647,7 +647,7 @@ public class channelEditor extends javax.swing.JFrame
 
     private void updateChannelList()
     {
-        channelList.set(SelectedPos - 1, createReturnChannel());
+        channelList.set(SelectedPos - 1 , createReturnChannel());
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane CE_JScrollPane_Type;

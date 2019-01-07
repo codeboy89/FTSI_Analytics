@@ -1,4 +1,5 @@
-package com.daqecho.ftsi_analytics.data;
+
+package com.daqecho.ftsi_analytics.input.channel;
 
 import java.util.ArrayList;
 
@@ -8,41 +9,41 @@ public class Channel
     public Channel()
     {
     }
-    private String name = (String) "";
-    private String type = (String) "";
-    private String unit = (String) "";
+
+    private String name = ( String ) "";
+    private String type = ( String ) "";
+    private String unit = ( String ) "";
     private int unitRow = 0;
     private int typeRow = 0;
     private int pos = 0;
     private int tablePos = 0;
 
-    public Channel(ArrayList<Channel> channelList)
+    public Channel( ArrayList<Channel> channelList )
     {
         String temp;
         temp = channelList.toString();
         String[] s;
         s = temp.split(",");
-        this.name = s[0];
-        this.type = s[1];
-        this.unit = s[2];
-        this.tablePos = Integer.parseInt(s[3].trim().replaceAll("[^0-9]", ""));
-        this.typeRow = Integer.parseInt(s[4].trim().replaceAll("[^0-9]", ""));
-        this.unitRow = Integer.parseInt(s[5].trim().replaceAll("[^0-9]", ""));
-        this.pos = Integer.parseInt(s[3].trim().replaceAll("[^0-9]", ""));
+        this.name = s[ 0 ];
+        this.type = s[ 1 ];
+        this.unit = s[ 2 ];
+        this.tablePos = Integer.parseInt(s[ 3 ].trim().replaceAll("[^0-9]" , ""));
+        this.typeRow = Integer.parseInt(s[ 4 ].trim().replaceAll("[^0-9]" , ""));
+        this.unitRow = Integer.parseInt(s[ 5 ].trim().replaceAll("[^0-9]" , ""));
+        this.pos = Integer.parseInt(s[ 3 ].trim().replaceAll("[^0-9]" , ""));
     }
 
-    public Channel(String channel)
+    public Channel( String channel )
     {
         System.out.println("Class: Channel: Constructor: Channel(String channel) - channel: " + channel);
         String[] channelSplit = channel.trim().split(",");
-        this.name = channelSplit[0];
-        this.type = channelSplit[1];
-        this.unit = channelSplit[2];
-        System.out.println("pos" + Integer.parseInt(channelSplit[3]));
-        this.tablePos = Integer.parseInt(channelSplit[3].trim().replaceAll("[^0-9]", ""));
-        this.typeRow = Integer.parseInt(channelSplit[4].trim().replaceAll("[^0-9]", ""));
-        this.unitRow = Integer.parseInt(channelSplit[5].trim().replaceAll("[^0-9]", ""));
-        this.pos = Integer.parseInt(channelSplit[6].trim().replaceAll("[^0-9]", ""));
+        this.name = channelSplit[ 0 ];
+        this.type = channelSplit[ 1 ];
+        this.unit = channelSplit[ 2 ];
+        this.tablePos = Integer.parseInt(channelSplit[ 3 ].trim().replaceAll("[^0-9]" , ""));
+        this.typeRow = Integer.parseInt(channelSplit[ 4 ].trim().replaceAll("[^0-9]" , ""));
+        this.unitRow = Integer.parseInt(channelSplit[ 5 ].trim().replaceAll("[^0-9]" , ""));
+        this.pos = Integer.parseInt(channelSplit[ 6 ].trim().replaceAll("[^0-9]" , ""));
 
     }
 
@@ -57,7 +58,7 @@ public class Channel
         return name;
     }
 
-    public void setName(String name)
+    public void setName( String name )
     {
         this.name = name;
     }
@@ -67,7 +68,7 @@ public class Channel
         return type;
     }
 
-    public void setType(String type)
+    public void setType( String type )
     {
         this.type = type;
     }
@@ -77,7 +78,7 @@ public class Channel
         return unit;
     }
 
-    public void setUnit(String unit)
+    public void setUnit( String unit )
     {
         this.unit = unit;
     }
@@ -87,7 +88,7 @@ public class Channel
         return unitRow;
     }
 
-    public void setUnitRow(int unitRow)
+    public void setUnitRow( int unitRow )
     {
         this.unitRow = unitRow;
     }
@@ -97,7 +98,7 @@ public class Channel
         return typeRow;
     }
 
-    public void setTypeRow(int typeRow)
+    public void setTypeRow( int typeRow )
     {
         this.typeRow = typeRow;
     }
@@ -107,7 +108,7 @@ public class Channel
         return pos;
     }
 
-    public void setPos(int pos)
+    public void setPos( int pos )
     {
         this.pos = pos;
     }
@@ -117,7 +118,7 @@ public class Channel
         return tablePos;
     }
 
-    public void setTablePos(int tablePos)
+    public void setTablePos( int tablePos )
     {
         this.tablePos = tablePos;
     }

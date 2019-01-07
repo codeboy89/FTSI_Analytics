@@ -1,6 +1,6 @@
-package com.daqecho.ftsi_analytics.input;
 
-import com.daqecho.ftsi_analytics.data.Channel;
+package com.daqecho.ftsi_analytics.input.channel;
+
 import com.daqecho.ftsi_analytics.ui.ui;
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 import java.awt.Color;
@@ -32,16 +32,16 @@ public class Input_Channel_Selection extends javax.swing.JFrame
     private boolean newRowSelected = false;
     int movePosCounter = 0;
 
-    public Input_Channel_Selection(ArrayList<Channel> channelList)
+    public Input_Channel_Selection( ArrayList<Channel> channelList )
     {
         initComponents();
         ICS_Table_Channels.setSelectionForeground(Color.orange);
         ICS_Table_Channels.setSelectionBackground(Color.BLACK);
-        ICS_Table_Channels.getSelectionModel().setSelectionInterval(0, 0);
+        ICS_Table_Channels.getSelectionModel().setSelectionInterval(0 , 0);
         this.channelList = channelList;
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings( "unchecked" )
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
     {
@@ -464,92 +464,92 @@ public class Input_Channel_Selection extends javax.swing.JFrame
 
     private void ICS_Button_EditActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_EditActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_EditActionPerformed
-        if (isSelected())
-        {
+        if ( isSelected() )
+            {
             itemWasModified = true;
             editSelectedRow();
-        }
+            }
 
     }//GEN-LAST:event_ICS_Button_EditActionPerformed
 
     private void ICS_Button_RemoveActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_RemoveActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_RemoveActionPerformed
-        if (selectall)
-        {
+        if ( selectall )
+            {
             itemWasModified = true;
             channelList.clear();
             itemWasModified = false;
             updateTable();
-        } else if (ICS_Table_Channels.isRowSelected(ICS_Table_Channels.getSelectedRow()))
-        {
+            } else if ( ICS_Table_Channels.isRowSelected(ICS_Table_Channels.getSelectedRow()) )
+            {
             itemWasModified = true;
             removeSelectedRow();
             itemWasModified = false;
-        }
+            }
         selectall = false;
     }//GEN-LAST:event_ICS_Button_RemoveActionPerformed
 
     private void ICS_Button_MoveUpActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_MoveUpActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_MoveUpActionPerformed
-        if (ICS_Table_Channels.isRowSelected(ICS_Table_Channels.getSelectedRow()))
-        {
+        if ( ICS_Table_Channels.isRowSelected(ICS_Table_Channels.getSelectedRow()) )
+            {
             movePosCounter = ICS_Table_Channels.getSelectedRow();
             int lastIndexOf = channelList.lastIndexOf(channelList.get(movePosCounter));
-            if (lastIndexOf > 0 & lastIndexOf <= channelList.size())
-            {
-                Collections.swap(channelList, lastIndexOf, lastIndexOf - 1);
+            if ( lastIndexOf > 0 & lastIndexOf <= channelList.size() )
+                {
+                Collections.swap(channelList , lastIndexOf , lastIndexOf - 1);
                 itemWasModified = true;
                 updateChannelList();
                 updateTable();
                 movePosCounter--;
-            }
-        } else
-        {
+                }
+            } else
+            {
             int lastIndexOf = channelList.lastIndexOf(channelList.get(movePosCounter));
-            if (lastIndexOf > 0 & lastIndexOf <= channelList.size())
-            {
-                Collections.swap(channelList, lastIndexOf, lastIndexOf - 1);
+            if ( lastIndexOf > 0 & lastIndexOf <= channelList.size() )
+                {
+                Collections.swap(channelList , lastIndexOf , lastIndexOf - 1);
                 itemWasModified = true;
                 updateChannelList();
                 updateTable();
                 movePosCounter--;
+                }
             }
-        }
         int i = movePosCounter;
-        ICS_Table_Channels.getSelectionModel().setSelectionInterval(i, i);
-        ICS_Label_ChannelCount.scrollRectToVisible(new Rectangle(ICS_Table_Channels.getCellRect(i, 0, true)));
+        ICS_Table_Channels.getSelectionModel().setSelectionInterval(i , i);
+        ICS_Label_ChannelCount.scrollRectToVisible(new Rectangle(ICS_Table_Channels.getCellRect(i , 0 , true)));
         ICS_Table_Channels.setSelectionForeground(Color.ORANGE);
     }//GEN-LAST:event_ICS_Button_MoveUpActionPerformed
 
     private void ICS_Button_MoveDownActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ICS_Button_MoveDownActionPerformed
     {//GEN-HEADEREND:event_ICS_Button_MoveDownActionPerformed
 
-        if (ICS_Table_Channels.isRowSelected(ICS_Table_Channels.getSelectedRow()))
-        {
-            int lastIndexOf = channelList.lastIndexOf(channelList.get(movePosCounter));
-            if (lastIndexOf >= 0 & lastIndexOf < channelList.size() - 1)
+        if ( ICS_Table_Channels.isRowSelected(ICS_Table_Channels.getSelectedRow()) )
             {
-                Collections.swap(channelList, lastIndexOf, lastIndexOf + 1);
+            int lastIndexOf = channelList.lastIndexOf(channelList.get(movePosCounter));
+            if ( lastIndexOf >= 0 & lastIndexOf < channelList.size() - 1 )
+                {
+                Collections.swap(channelList , lastIndexOf , lastIndexOf + 1);
                 itemWasModified = true;
                 updateChannelList();
                 updateTable();
-            }
+                }
             movePosCounter++;
-        } else
-        {
-            int lastIndexOf = channelList.lastIndexOf(channelList.get(movePosCounter));
-            if (lastIndexOf >= 0 & lastIndexOf < channelList.size() - 1)
+            } else
             {
-                Collections.swap(channelList, lastIndexOf, lastIndexOf + 1);
+            int lastIndexOf = channelList.lastIndexOf(channelList.get(movePosCounter));
+            if ( lastIndexOf >= 0 & lastIndexOf < channelList.size() - 1 )
+                {
+                Collections.swap(channelList , lastIndexOf , lastIndexOf + 1);
                 itemWasModified = true;
                 updateChannelList();
                 updateTable();
-            }
+                }
             movePosCounter++;
-        }
+            }
         int i = movePosCounter;
-        ICS_Table_Channels.getSelectionModel().setSelectionInterval(i, i);
-        ICS_Label_ChannelCount.scrollRectToVisible(new Rectangle(ICS_Table_Channels.getCellRect(i, 0, true)));
+        ICS_Table_Channels.getSelectionModel().setSelectionInterval(i , i);
+        ICS_Label_ChannelCount.scrollRectToVisible(new Rectangle(ICS_Table_Channels.getCellRect(i , 0 , true)));
         ICS_Table_Channels.setSelectionForeground(Color.ORANGE);
     }//GEN-LAST:event_ICS_Button_MoveDownActionPerformed
 
@@ -591,8 +591,8 @@ public class Input_Channel_Selection extends javax.swing.JFrame
     {//GEN-HEADEREND:event_OpenedWindowHandler
         updateTable();
         int i = 0;
-        ICS_Table_Channels.getSelectionModel().setSelectionInterval(i, i);
-        ICS_Label_ChannelCount.scrollRectToVisible(new Rectangle(ICS_Table_Channels.getCellRect(i, 0, true)));
+        ICS_Table_Channels.getSelectionModel().setSelectionInterval(i , i);
+        ICS_Label_ChannelCount.scrollRectToVisible(new Rectangle(ICS_Table_Channels.getCellRect(i , 0 , true)));
         ICS_Table_Channels.setSelectionForeground(Color.ORANGE);
     }//GEN-LAST:event_OpenedWindowHandler
 
@@ -606,7 +606,7 @@ public class Input_Channel_Selection extends javax.swing.JFrame
         return !ICS_Table_Channels.getSelectionModel().isSelectionEmpty() & isRowSelected;
     }
 
-    private void print(String s)
+    private void print( String s )
     {
         System.out.println(s);
     }
@@ -617,9 +617,9 @@ public class Input_Channel_Selection extends javax.swing.JFrame
         print(String.valueOf("RowCount: " + ICS_Table_Channels.getRowCount()));
     }
 
-    public void insertChannelToArray(Channel createReturnChannel, int SelectedPos)
+    public void insertChannelToArray( Channel createReturnChannel , int SelectedPos )
     {
-        channelList.add(SelectedPos, createReturnChannel);
+        channelList.add(SelectedPos , createReturnChannel);
         print("Inserting:" + channelList.toString() + " to array");
         updateTable();
     }
@@ -647,26 +647,26 @@ public class Input_Channel_Selection extends javax.swing.JFrame
 
     private void updateChannelList()
     {
-        if (!channelList.isEmpty())
+        if ( !channelList.isEmpty() )
 
-        {
-            if (itemWasModified)
             {
-                for (int i = 0; i < channelList.size(); i++)
+            if ( itemWasModified )
                 {
-                    System.out.println("Element: " + channelList.get(i) + " Pos: " + channelList.get(i).getPos());
+                for ( int i = 0 ; i < channelList.size() ; i++ )
+                    {
+                    System.out.println("Class: InputChannelSelecton: UpdateChannelList: Element: " + channelList.get(i) + " Pos: " + channelList.get(i).getPos());
                     channelList.get(i).setTablePos(i + 1);
                     channelList.get(i).setPos(i);
 
-                    System.out.println("Element Modified: " + channelList.get(i) + " Pos: " + channelList.get(i).getPos());
+                    System.out.println("Class: InputChannelSelecton: UpdateChannelList: Element Modified: " + channelList.get(i) + " Pos: " + channelList.get(i).getPos());
 
-                }
+                    }
                 updateTable();
+                }
             }
-        }
     }
 
-    void addChannelToArray(Channel c)
+    void addChannelToArray( Channel c )
     {
         channelList.add(c);
         updateTable();
@@ -675,35 +675,35 @@ public class Input_Channel_Selection extends javax.swing.JFrame
 
     public void updateTable()
     {
-        if (!channelList.isEmpty())
-        {
+        if ( !channelList.isEmpty() )
+            {
             print("Class: InputChannelSelecton: UpdateTable: Updating Table");
             ICS_Table_Channels.setModel(new ChannelTableModel(this.channelList));
             updateRowCount();
-        } else
-        {
+            } else
+            {
             System.out.println("Class: InputChannelSelecton: UpdateTable() - Empty List");
 
             ICS_Table_Channels.setModel(new ChannelTableModel(this.channelList));
             updateRowCount();
-        }
+            }
     }
 
     public void load()
     {
 
         try
-        {
+            {
             UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
-        } catch (ParseException | UnsupportedLookAndFeelException ex)
-        {
-            Logger.getLogger(ui.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            } catch ( ParseException | UnsupportedLookAndFeelException ex )
+            {
+            Logger.getLogger(ui.class.getName()).log(Level.SEVERE , null , ex);
+            }
         java.awt.EventQueue.invokeLater(() ->
-        {
+            {
             new Input_Channel_Selection(this.channelList).setVisible(true);
 
-        });
+            });
 
     }
 

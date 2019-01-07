@@ -35,42 +35,43 @@ public class NewChartEditorAxis extends javax.swing.JFrame
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        ChartEditor_Properties_Jlabel = new javax.swing.JLabel();
-        ChartEditor_Suggestions_Jlabel = new javax.swing.JLabel();
-        ChartEditor_Title_Jlabel1 = new javax.swing.JLabel();
-        NewChartEditorProperties_TitleEdit_JTextField = new javax.swing.JTextField();
-        ChartEditor_Title_Jlabel2 = new javax.swing.JLabel();
+        NewChartEditorAxis_ChartAxisProperties_Jlabel = new javax.swing.JLabel();
+        NewChartEditorAxis_Suggestions_Jlabel = new javax.swing.JLabel();
+        NewChartEditorAxis_Title_Jlabel = new javax.swing.JLabel();
+        NewChartEditorAxis_TitleEdit_JTextField = new javax.swing.JTextField();
+        NewChartEditorAxis_TypesAndUnits_Jlabel = new javax.swing.JLabel();
         NewChartEditorProperties_Top_jSeparator = new javax.swing.JSeparator();
-        NewChartEditorProperties_DVT_Jlabel2 = new javax.swing.JLabel();
+        NewChartEditorAxis_Channels_Jlabel = new javax.swing.JLabel();
         NewChartEditorProperties_DVT_Jlabel4 = new javax.swing.JLabel();
         NewChartEditorProperties_Bottom_jseperator = new javax.swing.JSeparator();
-        NewChartEditorProperties_UseAutomaticGridLines_JCheckBox = new javax.swing.JCheckBox();
-        NewChartEditorProperties_GLEL_Jlabel = new javax.swing.JLabel();
-        NewChartEditorProperties_GridLinesEverys_JTextField = new javax.swing.JTextField();
-        NewChartEditorProperties_GLEU_Jlabel5 = new javax.swing.JLabel();
-        ChartEditor_TMEL_Jlabel = new javax.swing.JLabel();
-        NewChartEditorProperties_TickMarksEvery_JTextField = new javax.swing.JTextField();
-        ChartEditor_TMEU_Jlabel = new javax.swing.JLabel();
-        NewChartEditorProperties_Back_JButton = new javax.swing.JButton();
-        NewChartEditorProperties_Next_JButton = new javax.swing.JButton();
-        NewChartEditorProperties_Finish_JButton = new javax.swing.JButton();
-        NewChartEditorProperties_Cancel_JButton = new javax.swing.JButton();
+        NewChartEditorAxis_AutomaticallyGridLines_JCheckBox = new javax.swing.JCheckBox();
+        NewChartEditorAxis_GridLinesEvery_Jlabel = new javax.swing.JLabel();
+        NewChartEditorAxis_GridLinesEvery_JTextField = new javax.swing.JTextField();
+        NewChartEditorAxis_LineStyle_Jlabel = new javax.swing.JLabel();
+        NewChartEditorAxis_TickMarksEvery_Jlabel = new javax.swing.JLabel();
+        NewChartEditorAxis_TickMarksEvery_JTextField = new javax.swing.JTextField();
+        NewChartEditorAxis_ScaleUnits_JLabel = new javax.swing.JLabel();
+        NewChartEditorAxis_Back_JButton = new javax.swing.JButton();
+        NewChartEditorAxis_Next_JButton = new javax.swing.JButton();
+        NewChartEditorAxis_Finish_JButton = new javax.swing.JButton();
+        NewChartEditorAxis_Cancel_JButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        NewChartEditorAxis_Units_JTable = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        NewChartEditorAxis_Types_JTable = new javax.swing.JTable();
+        NewChartEditorAxis_Solid_JRadioButton = new javax.swing.JRadioButton();
+        NewChartEditorAxis_Dashed_JRadioButton = new javax.swing.JRadioButton();
+        NewChartEditorAxis_Dotted_JRadioButton = new javax.swing.JRadioButton();
+        NewChartEditorAxis_Color_JButton = new javax.swing.JButton();
         jSlider1 = new javax.swing.JSlider();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        NewChartEditorAxis_AutomaticallyCorrectScales_JCheckBox = new javax.swing.JCheckBox();
+        NewChartEditorAxis_ScaleMax_JTextField = new javax.swing.JTextField();
+        NewChartEditorAxis_ScaleMin_JTextField = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        ChartEditor_TMEU_Jlabel1 = new javax.swing.JLabel();
-        ChartEditor_TMEU_Jlabel2 = new javax.swing.JLabel();
+        NewChartEditorAxis_Channels_JTable = new javax.swing.JTable();
+        NewChartEditorAxis_GridLinesUnits_JLabel = new javax.swing.JLabel();
+        NewChartEditorAxis_TickMarksUnits_JLabel = new javax.swing.JLabel();
+        NewChartEditorAxis_Scaling_Jlabel = new javax.swing.JLabel();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -92,64 +93,64 @@ public class NewChartEditorAxis extends javax.swing.JFrame
 
         jPanel1.setRequestFocusEnabled(false);
 
-        ChartEditor_Properties_Jlabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        ChartEditor_Properties_Jlabel.setText("Chart Properties");
+        NewChartEditorAxis_ChartAxisProperties_Jlabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        NewChartEditorAxis_ChartAxisProperties_Jlabel.setText("Chart Axis Properties");
 
-        ChartEditor_Suggestions_Jlabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        ChartEditor_Suggestions_Jlabel.setText("Select properties for the line chart.");
+        NewChartEditorAxis_Suggestions_Jlabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_Suggestions_Jlabel.setText("Select properties for the line chart axis.");
 
-        ChartEditor_Title_Jlabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        ChartEditor_Title_Jlabel1.setText("Title:");
+        NewChartEditorAxis_Title_Jlabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_Title_Jlabel.setText("Title:");
 
-        NewChartEditorProperties_TitleEdit_JTextField.setText("Title");
-        NewChartEditorProperties_TitleEdit_JTextField.addActionListener(new java.awt.event.ActionListener()
+        NewChartEditorAxis_TitleEdit_JTextField.setText("Title");
+        NewChartEditorAxis_TitleEdit_JTextField.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed(evt);
+                NewChartEditorAxis_TitleEdit_JTextFieldActionPerformed(evt);
             }
         });
 
-        ChartEditor_Title_Jlabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        ChartEditor_Title_Jlabel2.setText("Types and Units:");
+        NewChartEditorAxis_TypesAndUnits_Jlabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_TypesAndUnits_Jlabel.setText("Types and Units:");
 
-        NewChartEditorProperties_DVT_Jlabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        NewChartEditorProperties_DVT_Jlabel2.setText("Channels:");
+        NewChartEditorAxis_Channels_Jlabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_Channels_Jlabel.setText("Channels:");
 
         NewChartEditorProperties_DVT_Jlabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         NewChartEditorProperties_DVT_Jlabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         NewChartEditorProperties_DVT_Jlabel4.setText("to");
         NewChartEditorProperties_DVT_Jlabel4.setToolTipText("");
 
-        NewChartEditorProperties_UseAutomaticGridLines_JCheckBox.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        NewChartEditorProperties_UseAutomaticGridLines_JCheckBox.setSelected(true);
-        NewChartEditorProperties_UseAutomaticGridLines_JCheckBox.setText("Use Automatic Grid Lines");
+        NewChartEditorAxis_AutomaticallyGridLines_JCheckBox.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_AutomaticallyGridLines_JCheckBox.setSelected(true);
+        NewChartEditorAxis_AutomaticallyGridLines_JCheckBox.setText("Use Automatic Grid Lines");
 
-        NewChartEditorProperties_GLEL_Jlabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        NewChartEditorProperties_GLEL_Jlabel.setText("Grid lines every:");
+        NewChartEditorAxis_GridLinesEvery_Jlabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_GridLinesEvery_Jlabel.setText("Grid lines every:");
 
-        NewChartEditorProperties_GridLinesEverys_JTextField.setText("0.0");
+        NewChartEditorAxis_GridLinesEvery_JTextField.setText("0.0");
 
-        NewChartEditorProperties_GLEU_Jlabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        NewChartEditorProperties_GLEU_Jlabel5.setText("Line Style: ");
+        NewChartEditorAxis_LineStyle_Jlabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_LineStyle_Jlabel.setText("Line Style: ");
 
-        ChartEditor_TMEL_Jlabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        ChartEditor_TMEL_Jlabel.setText("Tick marks every:");
+        NewChartEditorAxis_TickMarksEvery_Jlabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_TickMarksEvery_Jlabel.setText("Tick marks every:");
 
-        NewChartEditorProperties_TickMarksEvery_JTextField.setText("0.0");
+        NewChartEditorAxis_TickMarksEvery_JTextField.setText("0.0");
 
-        ChartEditor_TMEU_Jlabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        ChartEditor_TMEU_Jlabel.setText("s");
+        NewChartEditorAxis_ScaleUnits_JLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_ScaleUnits_JLabel.setText("s");
 
-        NewChartEditorProperties_Back_JButton.setText("< Back");
+        NewChartEditorAxis_Back_JButton.setText("< Back");
 
-        NewChartEditorProperties_Next_JButton.setText("Next >");
+        NewChartEditorAxis_Next_JButton.setText("Next >");
 
-        NewChartEditorProperties_Finish_JButton.setText("Finish");
+        NewChartEditorAxis_Finish_JButton.setText("Finish");
 
-        NewChartEditorProperties_Cancel_JButton.setText("Cancel");
+        NewChartEditorAxis_Cancel_JButton.setText("Cancel");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        NewChartEditorAxis_Units_JTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
                 {null, null, null, null},
@@ -162,9 +163,9 @@ public class NewChartEditorAxis extends javax.swing.JFrame
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(NewChartEditorAxis_Units_JTable);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        NewChartEditorAxis_Types_JTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
                 {null, null, null, null},
@@ -177,30 +178,38 @@ public class NewChartEditorAxis extends javax.swing.JFrame
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(NewChartEditorAxis_Types_JTable);
 
-        jRadioButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jRadioButton1.setText("Solid");
+        NewChartEditorAxis_Solid_JRadioButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_Solid_JRadioButton.setText("Solid");
 
-        jRadioButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jRadioButton2.setText("Dashed");
+        NewChartEditorAxis_Dashed_JRadioButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_Dashed_JRadioButton.setText("Dashed");
 
-        jRadioButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jRadioButton3.setText("Dotted");
+        NewChartEditorAxis_Dotted_JRadioButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_Dotted_JRadioButton.setText("Dotted");
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 0, 51));
-        jButton1.setText("Color");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setOpaque(false);
+        NewChartEditorAxis_Color_JButton.setBackground(new java.awt.Color(0, 0, 0));
+        NewChartEditorAxis_Color_JButton.setForeground(new java.awt.Color(255, 0, 51));
+        NewChartEditorAxis_Color_JButton.setText("Color");
+        NewChartEditorAxis_Color_JButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        NewChartEditorAxis_Color_JButton.setOpaque(false);
 
-        jCheckBox1.setText("jCheckBox1");
+        NewChartEditorAxis_AutomaticallyCorrectScales_JCheckBox.setSelected(true);
+        NewChartEditorAxis_AutomaticallyCorrectScales_JCheckBox.setText("Automatically Correct Scales");
 
-        jTextField1.setText("jTextField1");
+        NewChartEditorAxis_ScaleMax_JTextField.setText("100");
 
-        jTextField2.setText("jTextField1");
+        NewChartEditorAxis_ScaleMin_JTextField.setText("0");
+        NewChartEditorAxis_ScaleMin_JTextField.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                NewChartEditorAxis_ScaleMin_JTextFieldActionPerformed(evt);
+            }
+        });
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        NewChartEditorAxis_Channels_JTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
                 {null, null, null, null},
@@ -213,13 +222,16 @@ public class NewChartEditorAxis extends javax.swing.JFrame
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(NewChartEditorAxis_Channels_JTable);
 
-        ChartEditor_TMEU_Jlabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        ChartEditor_TMEU_Jlabel1.setText("s");
+        NewChartEditorAxis_GridLinesUnits_JLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_GridLinesUnits_JLabel.setText("s");
 
-        ChartEditor_TMEU_Jlabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        ChartEditor_TMEU_Jlabel2.setText("s");
+        NewChartEditorAxis_TickMarksUnits_JLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_TickMarksUnits_JLabel.setText("s");
+
+        NewChartEditorAxis_Scaling_Jlabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NewChartEditorAxis_Scaling_Jlabel.setText("Scaling:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -229,79 +241,89 @@ public class NewChartEditorAxis extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ChartEditor_Suggestions_Jlabel)
+                        .addComponent(NewChartEditorAxis_Suggestions_Jlabel)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ChartEditor_Properties_Jlabel)
+                            .addComponent(NewChartEditorAxis_ChartAxisProperties_Jlabel)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ChartEditor_Title_Jlabel2)
-                                        .addComponent(ChartEditor_Title_Jlabel1))
+                                        .addComponent(NewChartEditorAxis_TypesAndUnits_Jlabel)
+                                        .addComponent(NewChartEditorAxis_Title_Jlabel))
                                     .addGap(72, 72, 72)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(NewChartEditorProperties_TitleEdit_JTextField)))
+                                        .addComponent(NewChartEditorAxis_TitleEdit_JTextField)))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(NewChartEditorProperties_DVT_Jlabel2)
-                                        .addComponent(NewChartEditorProperties_GLEU_Jlabel5, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addGap(111, 111, 111)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(NewChartEditorAxis_Channels_Jlabel)
+                                                .addComponent(NewChartEditorAxis_LineStyle_Jlabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                                            .addGap(111, 111, 111))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                            .addComponent(NewChartEditorAxis_Scaling_Jlabel)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(NewChartEditorAxis_Solid_JRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jRadioButton2)
+                                                .addComponent(NewChartEditorAxis_Dashed_JRadioButton)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jRadioButton3)
+                                                .addComponent(NewChartEditorAxis_Dotted_JRadioButton)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(NewChartEditorAxis_Color_JButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jCheckBox1))
+                                            .addComponent(NewChartEditorAxis_AutomaticallyCorrectScales_JCheckBox))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(NewChartEditorAxis_ScaleMin_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(NewChartEditorProperties_DVT_Jlabel4)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(NewChartEditorAxis_ScaleMax_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
-                                            .addComponent(ChartEditor_TMEU_Jlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                            .addComponent(NewChartEditorAxis_ScaleUnits_JLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addContainerGap(13, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(NewChartEditorProperties_UseAutomaticGridLines_JCheckBox))
+                        .addComponent(NewChartEditorAxis_AutomaticallyGridLines_JCheckBox))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(NewChartEditorProperties_Back_JButton)
+                                .addComponent(NewChartEditorAxis_Back_JButton)
                                 .addGap(18, 18, 18)
-                                .addComponent(NewChartEditorProperties_Next_JButton)
+                                .addComponent(NewChartEditorAxis_Next_JButton)
                                 .addGap(18, 18, 18)
-                                .addComponent(NewChartEditorProperties_Finish_JButton)
+                                .addComponent(NewChartEditorAxis_Finish_JButton)
                                 .addGap(18, 18, 18)
-                                .addComponent(NewChartEditorProperties_Cancel_JButton))
+                                .addComponent(NewChartEditorAxis_Cancel_JButton))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(NewChartEditorProperties_GLEL_Jlabel)
-                                    .addComponent(ChartEditor_TMEL_Jlabel))
-                                .addGap(38, 38, 38)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(NewChartEditorProperties_TickMarksEvery_JTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
-                                    .addComponent(NewChartEditorProperties_GridLinesEverys_JTextField))
-                                .addGap(18, 18, 18)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(NewChartEditorAxis_TickMarksEvery_Jlabel)
+                                        .addGap(38, 38, 38))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(NewChartEditorAxis_GridLinesEvery_Jlabel)
+                                        .addGap(44, 44, 44)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ChartEditor_TMEU_Jlabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ChartEditor_TMEU_Jlabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(NewChartEditorAxis_GridLinesEvery_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(NewChartEditorAxis_GridLinesUnits_JLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(NewChartEditorAxis_TickMarksEvery_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(NewChartEditorAxis_TickMarksUnits_JLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -318,22 +340,22 @@ public class NewChartEditorAxis extends javax.swing.JFrame
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(ChartEditor_Properties_Jlabel)
+                .addComponent(NewChartEditorAxis_ChartAxisProperties_Jlabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ChartEditor_Suggestions_Jlabel)
+                .addComponent(NewChartEditorAxis_Suggestions_Jlabel)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NewChartEditorProperties_TitleEdit_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ChartEditor_Title_Jlabel1))
+                    .addComponent(NewChartEditorAxis_TitleEdit_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NewChartEditorAxis_Title_Jlabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ChartEditor_Title_Jlabel2)
+                    .addComponent(NewChartEditorAxis_TypesAndUnits_Jlabel)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(NewChartEditorProperties_DVT_Jlabel2))
+                        .addComponent(NewChartEditorAxis_Channels_Jlabel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -341,41 +363,43 @@ public class NewChartEditorAxis extends javax.swing.JFrame
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NewChartEditorProperties_GLEU_Jlabel5))
+                            .addComponent(NewChartEditorAxis_Solid_JRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NewChartEditorAxis_Dashed_JRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NewChartEditorAxis_Dotted_JRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NewChartEditorAxis_Color_JButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NewChartEditorAxis_LineStyle_Jlabel))
                         .addGap(18, 18, 18)
-                        .addComponent(jCheckBox1)
+                        .addComponent(NewChartEditorAxis_AutomaticallyCorrectScales_JCheckBox)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NewChartEditorAxis_ScaleMin_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(NewChartEditorProperties_DVT_Jlabel4)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ChartEditor_TMEU_Jlabel))
+                            .addComponent(NewChartEditorAxis_ScaleMax_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NewChartEditorAxis_ScaleUnits_JLabel)
+                            .addComponent(NewChartEditorAxis_Scaling_Jlabel))
                         .addGap(18, 18, 18)
-                        .addComponent(NewChartEditorProperties_UseAutomaticGridLines_JCheckBox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addComponent(NewChartEditorAxis_AutomaticallyGridLines_JCheckBox))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(128, 128, 128)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NewChartEditorProperties_GLEL_Jlabel)
-                    .addComponent(NewChartEditorProperties_TickMarksEvery_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ChartEditor_TMEU_Jlabel1))
+                        .addGap(123, 123, 123)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(NewChartEditorAxis_GridLinesEvery_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(NewChartEditorAxis_GridLinesUnits_JLabel))
+                    .addComponent(NewChartEditorAxis_GridLinesEvery_Jlabel))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NewChartEditorAxis_TickMarksEvery_Jlabel)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(NewChartEditorAxis_TickMarksEvery_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(NewChartEditorAxis_TickMarksUnits_JLabel)))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ChartEditor_TMEL_Jlabel)
-                    .addComponent(NewChartEditorProperties_GridLinesEverys_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ChartEditor_TMEU_Jlabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NewChartEditorProperties_Cancel_JButton)
-                    .addComponent(NewChartEditorProperties_Next_JButton)
-                    .addComponent(NewChartEditorProperties_Back_JButton)
-                    .addComponent(NewChartEditorProperties_Finish_JButton))
+                    .addComponent(NewChartEditorAxis_Cancel_JButton)
+                    .addComponent(NewChartEditorAxis_Next_JButton)
+                    .addComponent(NewChartEditorAxis_Back_JButton)
+                    .addComponent(NewChartEditorAxis_Finish_JButton))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -394,10 +418,15 @@ public class NewChartEditorAxis extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed
-    {//GEN-HEADEREND:event_NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed
+    private void NewChartEditorAxis_TitleEdit_JTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NewChartEditorAxis_TitleEdit_JTextFieldActionPerformed
+    {//GEN-HEADEREND:event_NewChartEditorAxis_TitleEdit_JTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed
+    }//GEN-LAST:event_NewChartEditorAxis_TitleEdit_JTextFieldActionPerformed
+
+    private void NewChartEditorAxis_ScaleMin_JTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NewChartEditorAxis_ScaleMin_JTextFieldActionPerformed
+    {//GEN-HEADEREND:event_NewChartEditorAxis_ScaleMin_JTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewChartEditorAxis_ScaleMin_JTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -447,46 +476,47 @@ public class NewChartEditorAxis extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ChartEditor_Properties_Jlabel;
-    private javax.swing.JLabel ChartEditor_Suggestions_Jlabel;
-    private javax.swing.JLabel ChartEditor_TMEL_Jlabel;
-    private javax.swing.JLabel ChartEditor_TMEU_Jlabel;
-    private javax.swing.JLabel ChartEditor_TMEU_Jlabel1;
-    private javax.swing.JLabel ChartEditor_TMEU_Jlabel2;
-    private javax.swing.JLabel ChartEditor_Title_Jlabel1;
-    private javax.swing.JLabel ChartEditor_Title_Jlabel2;
-    private javax.swing.JButton NewChartEditorProperties_Back_JButton;
+    private javax.swing.JCheckBox NewChartEditorAxis_AutomaticallyCorrectScales_JCheckBox;
+    javax.swing.JCheckBox NewChartEditorAxis_AutomaticallyGridLines_JCheckBox;
+    private javax.swing.JButton NewChartEditorAxis_Back_JButton;
+    private javax.swing.JButton NewChartEditorAxis_Cancel_JButton;
+    private javax.swing.JTable NewChartEditorAxis_Channels_JTable;
+    private javax.swing.JLabel NewChartEditorAxis_Channels_Jlabel;
+    private javax.swing.JLabel NewChartEditorAxis_ChartAxisProperties_Jlabel;
+    private javax.swing.JButton NewChartEditorAxis_Color_JButton;
+    private javax.swing.JRadioButton NewChartEditorAxis_Dashed_JRadioButton;
+    private javax.swing.JRadioButton NewChartEditorAxis_Dotted_JRadioButton;
+    private javax.swing.JButton NewChartEditorAxis_Finish_JButton;
+    javax.swing.JTextField NewChartEditorAxis_GridLinesEvery_JTextField;
+    private javax.swing.JLabel NewChartEditorAxis_GridLinesEvery_Jlabel;
+    private javax.swing.JLabel NewChartEditorAxis_GridLinesUnits_JLabel;
+    private javax.swing.JLabel NewChartEditorAxis_LineStyle_Jlabel;
+    private javax.swing.JButton NewChartEditorAxis_Next_JButton;
+    private javax.swing.JTextField NewChartEditorAxis_ScaleMax_JTextField;
+    private javax.swing.JTextField NewChartEditorAxis_ScaleMin_JTextField;
+    private javax.swing.JLabel NewChartEditorAxis_ScaleUnits_JLabel;
+    private javax.swing.JLabel NewChartEditorAxis_Scaling_Jlabel;
+    private javax.swing.JRadioButton NewChartEditorAxis_Solid_JRadioButton;
+    private javax.swing.JLabel NewChartEditorAxis_Suggestions_Jlabel;
+    javax.swing.JTextField NewChartEditorAxis_TickMarksEvery_JTextField;
+    private javax.swing.JLabel NewChartEditorAxis_TickMarksEvery_Jlabel;
+    private javax.swing.JLabel NewChartEditorAxis_TickMarksUnits_JLabel;
+    javax.swing.JTextField NewChartEditorAxis_TitleEdit_JTextField;
+    private javax.swing.JLabel NewChartEditorAxis_Title_Jlabel;
+    private javax.swing.JLabel NewChartEditorAxis_TypesAndUnits_Jlabel;
+    private javax.swing.JTable NewChartEditorAxis_Types_JTable;
+    private javax.swing.JTable NewChartEditorAxis_Units_JTable;
     private javax.swing.JSeparator NewChartEditorProperties_Bottom_jseperator;
-    private javax.swing.JButton NewChartEditorProperties_Cancel_JButton;
-    private javax.swing.JLabel NewChartEditorProperties_DVT_Jlabel2;
     private javax.swing.JLabel NewChartEditorProperties_DVT_Jlabel4;
-    private javax.swing.JButton NewChartEditorProperties_Finish_JButton;
-    private javax.swing.JLabel NewChartEditorProperties_GLEL_Jlabel;
-    private javax.swing.JLabel NewChartEditorProperties_GLEU_Jlabel5;
-    private javax.swing.JTextField NewChartEditorProperties_GridLinesEverys_JTextField;
-    private javax.swing.JButton NewChartEditorProperties_Next_JButton;
-    private javax.swing.JTextField NewChartEditorProperties_TickMarksEvery_JTextField;
-    private javax.swing.JTextField NewChartEditorProperties_TitleEdit_JTextField;
     private javax.swing.JSeparator NewChartEditorProperties_Top_jSeparator;
-    private javax.swing.JCheckBox NewChartEditorProperties_UseAutomaticGridLines_JCheckBox;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSlider jSlider1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
 }

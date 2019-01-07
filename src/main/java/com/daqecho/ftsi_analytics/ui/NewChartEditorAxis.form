@@ -67,17 +67,17 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="ChartEditor_Suggestions_Jlabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="NewChartEditorAxis_Suggestions_Jlabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ChartEditor_Properties_Jlabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="NewChartEditorAxis_ChartAxisProperties_Jlabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="ChartEditor_Title_Jlabel2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ChartEditor_Title_Jlabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="NewChartEditorAxis_TypesAndUnits_Jlabel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="NewChartEditorAxis_Title_Jlabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -86,39 +86,47 @@
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="jScrollPane1" min="-2" pref="377" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="NewChartEditorProperties_TitleEdit_JTextField" max="32767" attributes="0"/>
+                                          <Component id="NewChartEditorAxis_TitleEdit_JTextField" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="NewChartEditorProperties_DVT_Jlabel2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="NewChartEditorProperties_GLEU_Jlabel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="NewChartEditorAxis_Channels_Jlabel" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="NewChartEditorAxis_LineStyle_Jlabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="NewChartEditorAxis_Scaling_Jlabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jScrollPane4" min="-2" pref="762" max="-2" attributes="0"/>
                                               <Group type="102" attributes="0">
-                                                  <Component id="jRadioButton1" min="-2" pref="67" max="-2" attributes="0"/>
+                                                  <Component id="NewChartEditorAxis_Solid_JRadioButton" min="-2" pref="67" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="NewChartEditorAxis_Dashed_JRadioButton" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="NewChartEditorAxis_Dotted_JRadioButton" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jButton1" min="-2" pref="103" max="-2" attributes="0"/>
+                                                  <Component id="NewChartEditorAxis_Color_JButton" min="-2" pref="103" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="jSlider1" min="-2" pref="400" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="jCheckBox1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="NewChartEditorAxis_AutomaticallyCorrectScales_JCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jTextField2" min="-2" pref="344" max="-2" attributes="0"/>
+                                              <Component id="NewChartEditorAxis_ScaleMin_JTextField" min="-2" pref="344" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="NewChartEditorProperties_DVT_Jlabel4" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jTextField1" min="-2" pref="330" max="-2" attributes="0"/>
+                                              <Component id="NewChartEditorAxis_ScaleMax_JTextField" min="-2" pref="330" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="ChartEditor_TMEU_Jlabel" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="NewChartEditorAxis_ScaleUnits_JLabel" min="-2" pref="40" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -132,34 +140,42 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="NewChartEditorProperties_UseAutomaticGridLines_JCheckBox" min="-2" max="-2" attributes="0"/>
+                          <Component id="NewChartEditorAxis_AutomaticallyGridLines_JCheckBox" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="NewChartEditorProperties_Back_JButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NewChartEditorAxis_Back_JButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="NewChartEditorProperties_Next_JButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NewChartEditorAxis_Next_JButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="NewChartEditorProperties_Finish_JButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NewChartEditorAxis_Finish_JButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="NewChartEditorProperties_Cancel_JButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NewChartEditorAxis_Cancel_JButton" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="NewChartEditorProperties_GLEL_Jlabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ChartEditor_TMEL_Jlabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="NewChartEditorAxis_TickMarksEvery_Jlabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="NewChartEditorAxis_GridLinesEvery_Jlabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="NewChartEditorProperties_TickMarksEvery_JTextField" pref="705" max="32767" attributes="0"/>
-                                      <Component id="NewChartEditorProperties_GridLinesEverys_JTextField" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="ChartEditor_TMEU_Jlabel1" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <Component id="ChartEditor_TMEU_Jlabel2" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="NewChartEditorAxis_GridLinesEvery_JTextField" min="-2" pref="705" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="NewChartEditorAxis_GridLinesUnits_JLabel" min="-2" pref="40" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="NewChartEditorAxis_TickMarksEvery_JTextField" min="-2" pref="705" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="NewChartEditorAxis_TickMarksUnits_JLabel" min="-2" pref="40" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -187,24 +203,24 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Component id="ChartEditor_Properties_Jlabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="NewChartEditorAxis_ChartAxisProperties_Jlabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ChartEditor_Suggestions_Jlabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="NewChartEditorAxis_Suggestions_Jlabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="NewChartEditorProperties_TitleEdit_JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ChartEditor_Title_Jlabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="NewChartEditorAxis_TitleEdit_JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="NewChartEditorAxis_Title_Jlabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="ChartEditor_Title_Jlabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="NewChartEditorAxis_TypesAndUnits_Jlabel" min="-2" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" pref="200" max="32767" attributes="0"/>
                       <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="NewChartEditorProperties_DVT_Jlabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="NewChartEditorAxis_Channels_Jlabel" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -212,51 +228,55 @@
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jRadioButton1" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="jRadioButton3" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="jButton1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="NewChartEditorProperties_GLEU_Jlabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="NewChartEditorAxis_Solid_JRadioButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="NewChartEditorAxis_Dashed_JRadioButton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="NewChartEditorAxis_Dotted_JRadioButton" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="NewChartEditorAxis_Color_JButton" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="NewChartEditorAxis_LineStyle_Jlabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                          <Component id="NewChartEditorAxis_AutomaticallyCorrectScales_JCheckBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="NewChartEditorAxis_ScaleMin_JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="NewChartEditorProperties_DVT_Jlabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ChartEditor_TMEU_Jlabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="NewChartEditorAxis_ScaleMax_JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="NewChartEditorAxis_ScaleUnits_JLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="NewChartEditorAxis_Scaling_Jlabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="NewChartEditorProperties_UseAutomaticGridLines_JCheckBox" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="NewChartEditorAxis_AutomaticallyGridLines_JCheckBox" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jSlider1" min="-2" pref="59" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="NewChartEditorProperties_GLEL_Jlabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="NewChartEditorProperties_TickMarksEvery_JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ChartEditor_TMEU_Jlabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="NewChartEditorAxis_GridLinesEvery_JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="NewChartEditorAxis_GridLinesUnits_JLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="NewChartEditorAxis_GridLinesEvery_Jlabel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ChartEditor_TMEL_Jlabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="NewChartEditorProperties_GridLinesEverys_JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ChartEditor_TMEU_Jlabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="NewChartEditorAxis_TickMarksEvery_Jlabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="NewChartEditorAxis_TickMarksEvery_JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="NewChartEditorAxis_TickMarksUnits_JLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="39" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="NewChartEditorProperties_Cancel_JButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="NewChartEditorProperties_Next_JButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="NewChartEditorProperties_Back_JButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="NewChartEditorProperties_Finish_JButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="NewChartEditorAxis_Cancel_JButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="NewChartEditorAxis_Next_JButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="NewChartEditorAxis_Back_JButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="NewChartEditorAxis_Finish_JButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -278,23 +298,23 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="ChartEditor_Properties_Jlabel">
+        <Component class="javax.swing.JLabel" name="NewChartEditorAxis_ChartAxisProperties_Jlabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Chart Properties"/>
+            <Property name="text" type="java.lang.String" value="Chart Axis Properties"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="ChartEditor_Suggestions_Jlabel">
+        <Component class="javax.swing.JLabel" name="NewChartEditorAxis_Suggestions_Jlabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Select properties for the line chart."/>
+            <Property name="text" type="java.lang.String" value="Select properties for the line chart axis."/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="ChartEditor_Title_Jlabel1">
+        <Component class="javax.swing.JLabel" name="NewChartEditorAxis_Title_Jlabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -302,19 +322,19 @@
             <Property name="text" type="java.lang.String" value="Title:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="NewChartEditorProperties_TitleEdit_JTextField">
+        <Component class="javax.swing.JTextField" name="NewChartEditorAxis_TitleEdit_JTextField">
           <Properties>
             <Property name="text" type="java.lang.String" value="Title"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewChartEditorAxis_TitleEdit_JTextFieldActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
             <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="ChartEditor_Title_Jlabel2">
+        <Component class="javax.swing.JLabel" name="NewChartEditorAxis_TypesAndUnits_Jlabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -324,7 +344,7 @@
         </Component>
         <Component class="javax.swing.JSeparator" name="NewChartEditorProperties_Top_jSeparator">
         </Component>
-        <Component class="javax.swing.JLabel" name="NewChartEditorProperties_DVT_Jlabel2">
+        <Component class="javax.swing.JLabel" name="NewChartEditorAxis_Channels_Jlabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -344,7 +364,7 @@
         </Component>
         <Component class="javax.swing.JSeparator" name="NewChartEditorProperties_Bottom_jseperator">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="NewChartEditorProperties_UseAutomaticGridLines_JCheckBox">
+        <Component class="javax.swing.JCheckBox" name="NewChartEditorAxis_AutomaticallyGridLines_JCheckBox">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -356,7 +376,7 @@
             <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="NewChartEditorProperties_GLEL_Jlabel">
+        <Component class="javax.swing.JLabel" name="NewChartEditorAxis_GridLinesEvery_Jlabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -364,7 +384,7 @@
             <Property name="text" type="java.lang.String" value="Grid lines every:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="NewChartEditorProperties_GridLinesEverys_JTextField">
+        <Component class="javax.swing.JTextField" name="NewChartEditorAxis_GridLinesEvery_JTextField">
           <Properties>
             <Property name="text" type="java.lang.String" value="0.0"/>
           </Properties>
@@ -372,7 +392,7 @@
             <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="NewChartEditorProperties_GLEU_Jlabel5">
+        <Component class="javax.swing.JLabel" name="NewChartEditorAxis_LineStyle_Jlabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -380,7 +400,7 @@
             <Property name="text" type="java.lang.String" value="Line Style: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="ChartEditor_TMEL_Jlabel">
+        <Component class="javax.swing.JLabel" name="NewChartEditorAxis_TickMarksEvery_Jlabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -388,7 +408,7 @@
             <Property name="text" type="java.lang.String" value="Tick marks every:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="NewChartEditorProperties_TickMarksEvery_JTextField">
+        <Component class="javax.swing.JTextField" name="NewChartEditorAxis_TickMarksEvery_JTextField">
           <Properties>
             <Property name="text" type="java.lang.String" value="0.0"/>
           </Properties>
@@ -396,7 +416,7 @@
             <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="ChartEditor_TMEU_Jlabel">
+        <Component class="javax.swing.JLabel" name="NewChartEditorAxis_ScaleUnits_JLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -404,22 +424,22 @@
             <Property name="text" type="java.lang.String" value="s"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="NewChartEditorProperties_Back_JButton">
+        <Component class="javax.swing.JButton" name="NewChartEditorAxis_Back_JButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="&lt; Back"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="NewChartEditorProperties_Next_JButton">
+        <Component class="javax.swing.JButton" name="NewChartEditorAxis_Next_JButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Next &gt;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="NewChartEditorProperties_Finish_JButton">
+        <Component class="javax.swing.JButton" name="NewChartEditorAxis_Finish_JButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Finish"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="NewChartEditorProperties_Cancel_JButton">
+        <Component class="javax.swing.JButton" name="NewChartEditorAxis_Cancel_JButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancel"/>
           </Properties>
@@ -431,7 +451,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="NewChartEditorAxis_Units_JTable">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
@@ -452,7 +472,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable3">
+            <Component class="javax.swing.JTable" name="NewChartEditorAxis_Types_JTable">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
@@ -466,7 +486,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+        <Component class="javax.swing.JRadioButton" name="NewChartEditorAxis_Solid_JRadioButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -474,7 +494,7 @@
             <Property name="text" type="java.lang.String" value="Solid"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+        <Component class="javax.swing.JRadioButton" name="NewChartEditorAxis_Dashed_JRadioButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -482,7 +502,7 @@
             <Property name="text" type="java.lang.String" value="Dashed"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+        <Component class="javax.swing.JRadioButton" name="NewChartEditorAxis_Dotted_JRadioButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -490,7 +510,7 @@
             <Property name="text" type="java.lang.String" value="Dotted"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="NewChartEditorAxis_Color_JButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -509,20 +529,24 @@
         </Component>
         <Component class="javax.swing.JSlider" name="jSlider1">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+        <Component class="javax.swing.JCheckBox" name="NewChartEditorAxis_AutomaticallyCorrectScales_JCheckBox">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jCheckBox1"/>
+            <Property name="selected" type="boolean" value="true"/>
+            <Property name="text" type="java.lang.String" value="Automatically Correct Scales"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="NewChartEditorAxis_ScaleMax_JTextField">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
+            <Property name="text" type="java.lang.String" value="100"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="NewChartEditorAxis_ScaleMin_JTextField">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewChartEditorAxis_ScaleMin_JTextFieldActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane4">
           <AuxValues>
@@ -531,7 +555,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable4">
+            <Component class="javax.swing.JTable" name="NewChartEditorAxis_Channels_JTable">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
@@ -545,7 +569,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="ChartEditor_TMEU_Jlabel1">
+        <Component class="javax.swing.JLabel" name="NewChartEditorAxis_GridLinesUnits_JLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -553,12 +577,20 @@
             <Property name="text" type="java.lang.String" value="s"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="ChartEditor_TMEU_Jlabel2">
+        <Component class="javax.swing.JLabel" name="NewChartEditorAxis_TickMarksUnits_JLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="s"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="NewChartEditorAxis_Scaling_Jlabel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Scaling:"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -1,3 +1,4 @@
+
 package com.daqecho.ftsi_analytics.ui;
 
 import com.daqecho.ftsi_analytics.data.Channel;
@@ -16,6 +17,14 @@ import javax.swing.filechooser.FileSystemView;
 public class ui extends javax.swing.JFrame
 {
 
+    private Charts chart;
+
+    private CSV csv;
+
+    private String PATH = "C:\\Users\\oilfi\\Documents\\FTSI_Analytics\\FTSI_Analytics\\src\\main\\java\\com\\daqecho\\ftsi_analytics\\datas.csv";
+
+    private JFileChooser jfc;
+
     public ArrayList<Channel> channelList = new ArrayList<>();
 
     public ArrayList<Channel> getChannelList()
@@ -23,7 +32,7 @@ public class ui extends javax.swing.JFrame
         return channelList;
     }
 
-    public void setChannelList(ArrayList<Channel> channelList)
+    public void setChannelList( ArrayList<Channel> channelList )
     {
         this.channelList = channelList;
     }
@@ -32,23 +41,18 @@ public class ui extends javax.swing.JFrame
     {
 
         try
-        {
+            {
             UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
-        } catch (ParseException | UnsupportedLookAndFeelException ex)
-        {
+            } catch ( ParseException | UnsupportedLookAndFeelException ex )
+            {
             System.out.println(ex);
-        }
+            }
         java.awt.EventQueue.invokeLater(() ->
-        {
+            {
             new ui().setVisible(true);
 
-        });
+            });
     }
-
-    private Charts chart;
-    private CSV csv;
-    private String PATH = "C:\\Users\\oilfi\\Documents\\FTSI_Analytics\\FTSI_Analytics\\src\\main\\java\\com\\daqecho\\ftsi_analytics\\datas.csv";
-    private JFileChooser jfc;
 
     public ui()
     {
@@ -56,7 +60,7 @@ public class ui extends javax.swing.JFrame
         setup();
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings( "unchecked" )
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
     {
@@ -70,7 +74,7 @@ public class ui extends javax.swing.JFrame
         exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         UI_NewChartMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
+        UI_AddChannelMenuItem = new javax.swing.JMenuItem();
         pasteMenuItem = new javax.swing.JMenuItem();
         deleteMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
@@ -159,11 +163,10 @@ public class ui extends javax.swing.JFrame
             }
         });
         editMenu.add(UI_NewChartMenuItem);
-        UI_NewChartMenuItem.getAccessibleContext().setAccessibleName("New Chart");
 
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
+        UI_AddChannelMenuItem.setMnemonic('a');
+        UI_AddChannelMenuItem.setText("Add Channel");
+        editMenu.add(UI_AddChannelMenuItem);
 
         pasteMenuItem.setMnemonic('p');
         pasteMenuItem.setText("Paste");
@@ -219,6 +222,7 @@ public class ui extends javax.swing.JFrame
     {//GEN-HEADEREND:event_openMenuItemActionPerformed
         System.out.println("Class: UI: openMenuItemActionPerformed() - OPEN");
         fileHelper();
+
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     private void SetupMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SetupMenuItemActionPerformed
@@ -226,15 +230,15 @@ public class ui extends javax.swing.JFrame
         Input_Channel_Selection input_Channel_Selection = new Input_Channel_Selection(channelList);
         input_Channel_Selection.load();
 
-        if (this.channelList != null)
-        {
+        if ( this.channelList != null )
+            {
 
             System.out.println("Class: UI: SetupMenuItemActionPerformed() - Sent channelList: " + this.channelList);
-        } else
-        {
+            } else
+            {
 
             System.out.println("Class: UI: SetupMenuItemActionPerformed() - Null channelList");
-        }
+            }
 
     }//GEN-LAST:event_SetupMenuItemActionPerformed
 
@@ -245,7 +249,7 @@ public class ui extends javax.swing.JFrame
 
     private void editMenuActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_editMenuActionPerformed
     {//GEN-HEADEREND:event_editMenuActionPerformed
-        // TODO add your handling code here:
+        chart.addDataSet("test");
     }//GEN-LAST:event_editMenuActionPerformed
 
     private void UI_NewChartMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_UI_NewChartMenuItemActionPerformed
@@ -255,18 +259,26 @@ public class ui extends javax.swing.JFrame
         setContentPane(jpanel);
     }//GEN-LAST:event_UI_NewChartMenuItemActionPerformed
 
-    private void read(Iterable<String[]> records)
+    private void read( Iterable<String[]> records )
     {
 
         Thread thread = new Thread()
         {
+
             @Override
             public void run()
             {
-                for (String[] record : records)
-                {
-                    chart.update(Double.parseDouble(record[0]), Double.parseDouble(record[2]));
-                }
+                for ( String[] record : records )
+                    {
+                    boolean contains = record[ 0 ].contains(".");
+                    if ( contains )
+                        {
+
+                        chart.update(Double.parseDouble(record[ 0 ]) , Double.parseDouble(record[ 22 ]));
+                        } else
+                        {
+                        }
+                    }
             }
 
         };
@@ -285,38 +297,38 @@ public class ui extends javax.swing.JFrame
         Channel.setTypeRow(1);
         Channel.setUnitRow(1);
         //this.channelList.add(Channel);
-        for (int i = 1; i <= 10; i++)
-        {
+        for ( int i = 1 ; i <= 10 ; i++ )
+            {
             String name, type, unit;
             int tablepos, pos, typerow, unitrow;
             name = "name" + i;
             type = "type" + i;
             unit = "unit" + i;
-            if (i == 0)
-            {
+            if ( i == 0 )
+                {
                 tablepos = i + 1;
                 pos = i;
-            } else
-            {
+                } else
+                {
                 tablepos = i + 1;
                 pos = i;
 
-            }
+                }
             typerow = 5;
             unitrow = 1;
             String c = name + "," + type + "," + unit + "," + pos + "," + unitrow + "," + typerow + "," + tablepos;
             Channel Test = new Channel(c);
             this.channelList.add(Test);
-        }
+            }
         System.out.println("Class: UI: setup() - Init channelList:" + channelList);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem SetupMenuItem;
+    private javax.swing.JMenuItem UI_AddChannelMenuItem;
     private javax.swing.JMenuItem UI_NewChartMenuItem;
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem contentsMenuItem;
-    private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
@@ -336,13 +348,14 @@ public class ui extends javax.swing.JFrame
         int returnValue = jfc.showOpenDialog(null);
         // int returnValue = jfc.showSaveDialog(null);
 
-        if (returnValue == JFileChooser.APPROVE_OPTION)
-        {
+        if ( returnValue == JFileChooser.APPROVE_OPTION )
+            {
             File selectedFile = jfc.getSelectedFile();
             PATH = selectedFile.toString();
             csv = new CSV(PATH);
             read(csv.load());
-        }
+            }
 
     }
+
 }

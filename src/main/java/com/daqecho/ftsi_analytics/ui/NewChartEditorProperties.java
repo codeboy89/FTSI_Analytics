@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.daqecho.ftsi_analytics.ui;
 
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
@@ -12,134 +8,65 @@ import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-/**
- *
- * @author oilfi
- */
 public class NewChartEditorProperties extends javax.swing.JFrame
 {
 
-    private ChartsInterface chartsInterface;
-
-    private String title = "title ncep";
-    private String domainAxisLabel = "x ncep";
-    private String RangeAxisLabel = "y ncep";
-    private double TickMarksEvery = 0.0;
-    private double GridLinesEverys = 0.0;
-    private int defaultVisibleTime = 60;
-    private int numYAxes = 1;
-    private boolean legend = true;
-    private boolean toolTips = true;
-    private boolean url = false;
-    private boolean useAutomaticGridLines = true;
-
-    public String getTitle()
-    {
-        return title;
-    }
-
-    public void setTitle(String title)
-    {
-        this.title = title;
-    }
-
-    public NewChartEditorProperties(ChartsInterface chartsInterface)
+    public NewChartEditorProperties( ChartsInterface chartsInterface )
     {
         this.chartsInterface = chartsInterface;
         initComponents();
-
     }
 
-    private void data()
-    {
-        chartsInterface.SetupChartProperties();
-    }
+    private ChartsInterface chartsInterface;
 
-    public String getDomainAxisLabel()
-    {
-        return domainAxisLabel;
-    }
+    /*
+        private boolean legend = true;
+    private boolean toolTips = true;
+    private boolean url = false;
+    private String domainAxisLabel = "X";
+    private String RangeAxisLabel = "Y";
+     */
+    private String chartTitle;
 
-    public void setDomainAxisLabel(String domainAxisLabel)
-    {
-        this.domainAxisLabel = domainAxisLabel;
-    }
+    private double TickMarksEvery;
 
-    public String getRangeAxisLabel()
-    {
-        return RangeAxisLabel;
-    }
+    private double GridLinesEverys;
 
-    public void setRangeAxisLabel(String RangeAxisLabel)
-    {
-        this.RangeAxisLabel = RangeAxisLabel;
-    }
+    private double defaultVisibleTime;
 
-    public boolean isLegend()
-    {
-        return legend;
-    }
+    private int numYAxes;
 
-    public void setLegend(boolean legend)
-    {
-        this.legend = legend;
-    }
+    private boolean useAutomaticGridLines = true;
 
-    public boolean isToolTips()
-    {
-        return toolTips;
-    }
-
-    public void setToolTips(boolean toolTips)
-    {
-        this.toolTips = toolTips;
-    }
-
-    public boolean isUrl()
-    {
-        return url;
-    }
-
-    public void setUrl(boolean url)
-    {
-        this.url = url;
-    }
-
-    @Override
-    public String toString()
-    {
-        return "NewChartEditorProperties{" + "title=" + title + ", domainAxisLabel=" + domainAxisLabel + ", RangeAxisLabel=" + RangeAxisLabel + ", TickMarksEvery=" + TickMarksEvery + ", GridLinesEverys=" + GridLinesEverys + ", defaultVisibleTime=" + defaultVisibleTime + ", numYAxes=" + numYAxes + ", legend=" + legend + ", toolTips=" + toolTips + ", url=" + url + ", useAutomaticGridLines=" + useAutomaticGridLines + '}';
-    }
-
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings( "unchecked" )
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
     {
 
-        ChartEditor_Panel_Top = new javax.swing.JPanel();
-        ChartEditor_Properties_Jlabel = new javax.swing.JLabel();
-        ChartEditor_Suggestions_Jlabel = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        ChartEditor_Title_Jlabel1 = new javax.swing.JLabel();
+        javax.swing.JPanel ChartEditor_Panel_Top = new javax.swing.JPanel();
+        javax.swing.JLabel ChartEditor_Properties_Jlabel = new javax.swing.JLabel();
+        javax.swing.JLabel ChartEditor_Suggestions_Jlabel = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JLabel ChartEditor_Title_Jlabel1 = new javax.swing.JLabel();
         NewChartEditorProperties_TitleEdit_JTextField = new javax.swing.JTextField();
-        ChartEditor_Title_Jlabel2 = new javax.swing.JLabel();
+        javax.swing.JLabel ChartEditor_Title_Jlabel2 = new javax.swing.JLabel();
         NewChartEditorProperties_NumYAxes_Jspinner = new javax.swing.JSpinner();
-        NewChartEditorProperties_Top_jSeparator = new javax.swing.JSeparator();
-        NewChartEditorProperties_DVT_Jlabel2 = new javax.swing.JLabel();
+        javax.swing.JSeparator NewChartEditorProperties_Top_jSeparator = new javax.swing.JSeparator();
+        javax.swing.JLabel NewChartEditorProperties_DVT_Jlabel2 = new javax.swing.JLabel();
         NewChartEditorProperties_DefaultVisibleTimeEdit_JTextField = new javax.swing.JTextField();
-        NewChartEditorProperties_DVT_Jlabel4 = new javax.swing.JLabel();
-        NewChartEditorProperties_Bottom_jseperator = new javax.swing.JSeparator();
+        javax.swing.JLabel NewChartEditorProperties_DVT_Jlabel4 = new javax.swing.JLabel();
+        javax.swing.JSeparator NewChartEditorProperties_Bottom_jseperator = new javax.swing.JSeparator();
         NewChartEditorProperties_UseAutomaticGridLines_JCheckBox = new javax.swing.JCheckBox();
-        NewChartEditorProperties_GLEL_Jlabel = new javax.swing.JLabel();
+        javax.swing.JLabel NewChartEditorProperties_GLEL_Jlabel = new javax.swing.JLabel();
         NewChartEditorProperties_GridLinesEverys_JTextField = new javax.swing.JTextField();
-        NewChartEditorProperties_GLEU_Jlabel5 = new javax.swing.JLabel();
-        ChartEditor_TMEL_Jlabel = new javax.swing.JLabel();
+        javax.swing.JLabel NewChartEditorProperties_GLEU_Jlabel5 = new javax.swing.JLabel();
+        javax.swing.JLabel ChartEditor_TMEL_Jlabel = new javax.swing.JLabel();
         NewChartEditorProperties_TickMarksEvery_JTextField = new javax.swing.JTextField();
-        ChartEditor_TMEU_Jlabel = new javax.swing.JLabel();
-        NewChartEditorProperties_Back_JButton = new javax.swing.JButton();
-        NewChartEditorProperties_Next_JButton = new javax.swing.JButton();
-        NewChartEditorProperties_Finish_JButton = new javax.swing.JButton();
-        NewChartEditorProperties_Cancel_JButton = new javax.swing.JButton();
+        javax.swing.JLabel ChartEditor_TMEU_Jlabel = new javax.swing.JLabel();
+        javax.swing.JButton NewChartEditorProperties_Back_JButton = new javax.swing.JButton();
+        javax.swing.JButton NewChartEditorProperties_Next_JButton = new javax.swing.JButton();
+        javax.swing.JButton NewChartEditorProperties_Finish_JButton = new javax.swing.JButton();
+        javax.swing.JButton NewChartEditorProperties_Cancel_JButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("New Line Chart");
@@ -171,7 +98,7 @@ public class NewChartEditorProperties extends javax.swing.JFrame
         ChartEditor_Title_Jlabel1.setText("Title:");
         jPanel1.add(ChartEditor_Title_Jlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 150, 30));
 
-        NewChartEditorProperties_TitleEdit_JTextField.setText("\"Title\"");
+        NewChartEditorProperties_TitleEdit_JTextField.setText("Title");
         NewChartEditorProperties_TitleEdit_JTextField.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -250,28 +177,11 @@ public class NewChartEditorProperties extends javax.swing.JFrame
         jPanel1.add(ChartEditor_TMEL_Jlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 130, 30));
 
         NewChartEditorProperties_TickMarksEvery_JTextField.setText("0.0");
-        NewChartEditorProperties_TickMarksEvery_JTextField.addInputMethodListener(new java.awt.event.InputMethodListener()
-        {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt)
-            {
-                NewChartEditorProperties_TickMarksEvery_JTextFieldInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt)
-            {
-            }
-        });
         NewChartEditorProperties_TickMarksEvery_JTextField.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
                 NewChartEditorProperties_TickMarksEvery_JTextFieldActionPerformed(evt);
-            }
-        });
-        NewChartEditorProperties_TickMarksEvery_JTextField.addPropertyChangeListener(new java.beans.PropertyChangeListener()
-        {
-            public void propertyChange(java.beans.PropertyChangeEvent evt)
-            {
-                NewChartEditorProperties_TickMarksEvery_JTextFieldPropertyChange(evt);
             }
         });
         jPanel1.add(NewChartEditorProperties_TickMarksEvery_JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 360, 30));
@@ -328,37 +238,25 @@ public class NewChartEditorProperties extends javax.swing.JFrame
 
     private void NewChartEditorProperties_TickMarksEvery_JTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NewChartEditorProperties_TickMarksEvery_JTextFieldActionPerformed
     {//GEN-HEADEREND:event_NewChartEditorProperties_TickMarksEvery_JTextFieldActionPerformed
-        this.TickMarksEvery = Double.parseDouble(NewChartEditorProperties_TickMarksEvery_JTextField.getText().trim().replaceAll("[^0-9.]", ""));
+        this.TickMarksEvery = Double.parseDouble(NewChartEditorProperties_TickMarksEvery_JTextField.getText().trim().replaceAll("[^0-9.]" , ""));
         System.out.println("Class: NewChartEditorProperties: NewChartEditorProperties_TickMarksEvery_JTextFieldActionPerformed: " + this.TickMarksEvery);
     }//GEN-LAST:event_NewChartEditorProperties_TickMarksEvery_JTextFieldActionPerformed
 
-    private void NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed
-    {//GEN-HEADEREND:event_NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed
-        this.title = NewChartEditorProperties_TitleEdit_JTextField.getText();
-        System.out.println("Class: NewChartEditorProperties: NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed: " + this.title);
-    }//GEN-LAST:event_NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed
-
     private void NewChartEditorProperties_UseAutomaticGridLines_JCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NewChartEditorProperties_UseAutomaticGridLines_JCheckBoxActionPerformed
     {//GEN-HEADEREND:event_NewChartEditorProperties_UseAutomaticGridLines_JCheckBoxActionPerformed
-        if (NewChartEditorProperties_UseAutomaticGridLines_JCheckBox.isSelected())
-        {
-            useAutomaticGridLines = true;
-        } else
-        {
-            useAutomaticGridLines = false;
-        }
+        this.useAutomaticGridLines = NewChartEditorProperties_UseAutomaticGridLines_JCheckBox.isSelected();
         System.out.println("Class: NewChartEditorProperties: NewChartEditorProperties_UseAutomaticGridLines_JCheckBoxActionPerformed: " + this.useAutomaticGridLines);
     }//GEN-LAST:event_NewChartEditorProperties_UseAutomaticGridLines_JCheckBoxActionPerformed
 
     private void NewChartEditorProperties_DefaultVisibleTimeEdit_JTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NewChartEditorProperties_DefaultVisibleTimeEdit_JTextFieldActionPerformed
     {//GEN-HEADEREND:event_NewChartEditorProperties_DefaultVisibleTimeEdit_JTextFieldActionPerformed
-        this.defaultVisibleTime = Integer.getInteger(NewChartEditorProperties_DefaultVisibleTimeEdit_JTextField.getText().trim().replaceAll("[^0-9.]", ""));
+        this.defaultVisibleTime = Double.parseDouble(NewChartEditorProperties_DefaultVisibleTimeEdit_JTextField.getText().trim().replaceAll("[^0-9.]" , ""));
         System.out.println("Class: NewChartEditorProperties: NewChartEditorProperties_DefaultVisibleTimeEdit_JTextFieldActionPerformed: " + this.defaultVisibleTime);
     }//GEN-LAST:event_NewChartEditorProperties_DefaultVisibleTimeEdit_JTextFieldActionPerformed
 
     private void NewChartEditorProperties_GridLinesEverys_JTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NewChartEditorProperties_GridLinesEverys_JTextFieldActionPerformed
     {//GEN-HEADEREND:event_NewChartEditorProperties_GridLinesEverys_JTextFieldActionPerformed
-        this.GridLinesEverys = Double.parseDouble(NewChartEditorProperties_GridLinesEverys_JTextField.getText().trim().replaceAll("[^0-9.]", ""));
+        this.GridLinesEverys = Double.parseDouble(NewChartEditorProperties_GridLinesEverys_JTextField.getText().trim().replaceAll("[^0-9.]" , ""));
         System.out.println("Class: NewChartEditorProperties: NewChartEditorProperties_GridLinesEverys_JTextFieldActionPerformed: " + this.GridLinesEverys);
     }//GEN-LAST:event_NewChartEditorProperties_GridLinesEverys_JTextFieldActionPerformed
 
@@ -369,8 +267,7 @@ public class NewChartEditorProperties extends javax.swing.JFrame
 
     private void NewChartEditorProperties_Finish_JButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NewChartEditorProperties_Finish_JButtonActionPerformed
     {//GEN-HEADEREND:event_NewChartEditorProperties_Finish_JButtonActionPerformed
-        data();
-
+        readForm();
         super.dispose();
     }//GEN-LAST:event_NewChartEditorProperties_Finish_JButtonActionPerformed
 
@@ -381,7 +278,7 @@ public class NewChartEditorProperties extends javax.swing.JFrame
 
     private void NewChartEditorProperties_NumYAxes_JspinnerStateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_NewChartEditorProperties_NumYAxes_JspinnerStateChanged
     {//GEN-HEADEREND:event_NewChartEditorProperties_NumYAxes_JspinnerStateChanged
-        ReadSpinner();
+        this.numYAxes = ReadSpinner();
     }//GEN-LAST:event_NewChartEditorProperties_NumYAxes_JspinnerStateChanged
 
     private void NewChartEditorProperties_Back_JButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NewChartEditorProperties_Back_JButtonActionPerformed
@@ -389,78 +286,135 @@ public class NewChartEditorProperties extends javax.swing.JFrame
 
     }//GEN-LAST:event_NewChartEditorProperties_Back_JButtonActionPerformed
 
-    private void NewChartEditorProperties_TickMarksEvery_JTextFieldPropertyChange(java.beans.PropertyChangeEvent evt)//GEN-FIRST:event_NewChartEditorProperties_TickMarksEvery_JTextFieldPropertyChange
-    {//GEN-HEADEREND:event_NewChartEditorProperties_TickMarksEvery_JTextFieldPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NewChartEditorProperties_TickMarksEvery_JTextFieldPropertyChange
+    private void NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed
+    {//GEN-HEADEREND:event_NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed
+        //this.chartTitle = NewChartEditorProperties_TitleEdit_JTextField.getText();
+        //System.out.println("Class: NewChartEditorProperties: NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed: " + this.chartTitle);
+    }//GEN-LAST:event_NewChartEditorProperties_TitleEdit_JTextFieldActionPerformed
 
-    private void NewChartEditorProperties_TickMarksEvery_JTextFieldInputMethodTextChanged(java.awt.event.InputMethodEvent evt)//GEN-FIRST:event_NewChartEditorProperties_TickMarksEvery_JTextFieldInputMethodTextChanged
-    {//GEN-HEADEREND:event_NewChartEditorProperties_TickMarksEvery_JTextFieldInputMethodTextChanged
-        System.out.println("changed");
-    }//GEN-LAST:event_NewChartEditorProperties_TickMarksEvery_JTextFieldInputMethodTextChanged
-
-    private void ReadSpinner()
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    javax.swing.JTextField NewChartEditorProperties_DefaultVisibleTimeEdit_JTextField;
+    javax.swing.JTextField NewChartEditorProperties_GridLinesEverys_JTextField;
+    javax.swing.JSpinner NewChartEditorProperties_NumYAxes_Jspinner;
+    javax.swing.JTextField NewChartEditorProperties_TickMarksEvery_JTextField;
+    javax.swing.JTextField NewChartEditorProperties_TitleEdit_JTextField;
+    javax.swing.JCheckBox NewChartEditorProperties_UseAutomaticGridLines_JCheckBox;
+    // End of variables declaration//GEN-END:variables
+    private int ReadSpinner()
     {
         try
-        {
+            {
             NewChartEditorProperties_NumYAxes_Jspinner.commitEdit();
-        } catch (java.text.ParseException e)
-        {
-        }
-        this.numYAxes = (Integer) NewChartEditorProperties_NumYAxes_Jspinner.getValue();
+            } catch ( java.text.ParseException e )
+            {
+            }
         System.out.println("Class: NewChartEditorProperties: NewChartEditorProperties_NumYAxes_JspinnerPropertyChange: " + this.numYAxes);
+        return ( Integer ) NewChartEditorProperties_NumYAxes_Jspinner.getValue();
     }
 
     public void load()
     {
 
         try
-        {
+            {
             UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
-        } catch (ParseException | UnsupportedLookAndFeelException ex)
-        {
-            Logger.getLogger(ui.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            } catch ( ParseException | UnsupportedLookAndFeelException ex )
+            {
+            Logger.getLogger(ui.class.getName()).log(Level.SEVERE , null , ex);
+            }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable()
         {
+
             public void run()
             {
                 new NewChartEditorProperties(chartsInterface).setVisible(true);
             }
+
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel ChartEditor_Panel_Top;
-    private javax.swing.JLabel ChartEditor_Properties_Jlabel;
-    private javax.swing.JLabel ChartEditor_Suggestions_Jlabel;
-    private javax.swing.JLabel ChartEditor_TMEL_Jlabel;
-    private javax.swing.JLabel ChartEditor_TMEU_Jlabel;
-    private javax.swing.JLabel ChartEditor_Title_Jlabel1;
-    private javax.swing.JLabel ChartEditor_Title_Jlabel2;
-    private javax.swing.JButton NewChartEditorProperties_Back_JButton;
-    private javax.swing.JSeparator NewChartEditorProperties_Bottom_jseperator;
-    private javax.swing.JButton NewChartEditorProperties_Cancel_JButton;
-    private javax.swing.JLabel NewChartEditorProperties_DVT_Jlabel2;
-    private javax.swing.JLabel NewChartEditorProperties_DVT_Jlabel4;
-    private javax.swing.JTextField NewChartEditorProperties_DefaultVisibleTimeEdit_JTextField;
-    private javax.swing.JButton NewChartEditorProperties_Finish_JButton;
-    private javax.swing.JLabel NewChartEditorProperties_GLEL_Jlabel;
-    private javax.swing.JLabel NewChartEditorProperties_GLEU_Jlabel5;
-    private javax.swing.JTextField NewChartEditorProperties_GridLinesEverys_JTextField;
-    private javax.swing.JButton NewChartEditorProperties_Next_JButton;
-    private javax.swing.JSpinner NewChartEditorProperties_NumYAxes_Jspinner;
-    private javax.swing.JTextField NewChartEditorProperties_TickMarksEvery_JTextField;
-    private javax.swing.JTextField NewChartEditorProperties_TitleEdit_JTextField;
-    private javax.swing.JSeparator NewChartEditorProperties_Top_jSeparator;
-    private javax.swing.JCheckBox NewChartEditorProperties_UseAutomaticGridLines_JCheckBox;
-    private javax.swing.JPanel jPanel1;
-    // End of variables declaration//GEN-END:variables
 
     void Show()
     {
         load();
     }
+
+    private void readForm()
+    {
+        this.chartTitle = NewChartEditorProperties_TitleEdit_JTextField.getText();
+        this.GridLinesEverys = Double.parseDouble(NewChartEditorProperties_GridLinesEverys_JTextField.getText().trim().replaceAll("[^0-9.]" , ""));
+        this.TickMarksEvery = Double.parseDouble(NewChartEditorProperties_TickMarksEvery_JTextField.getText().trim().replaceAll("[^0-9.]" , ""));
+        this.numYAxes = ReadSpinner();
+        this.useAutomaticGridLines = NewChartEditorProperties_UseAutomaticGridLines_JCheckBox.isSelected();
+        this.defaultVisibleTime = Double.parseDouble(NewChartEditorProperties_DefaultVisibleTimeEdit_JTextField.getText().trim().replaceAll("[^0-9.]" , ""));
+        chartsInterface.SetupChartProperties(this);
+    }
+
+    @Override
+    public String toString()
+    {
+        return "NewChartEditorProperties{" + "chartTitle=" + chartTitle + ", TickMarksEvery=" + TickMarksEvery + ", GridLinesEverys=" + GridLinesEverys + ", defaultVisibleTime=" + defaultVisibleTime + ", numYAxes=" + numYAxes + ", useAutomaticGridLines=" + useAutomaticGridLines + '}';
+    }
+
+    public String getChartTitle()
+    {
+        return chartTitle;
+    }
+
+    public void setChartTitle( String chartTitle )
+    {
+        this.chartTitle = chartTitle;
+    }
+
+    public double getTickMarksEvery()
+    {
+        return TickMarksEvery;
+    }
+
+    public void setTickMarksEvery( double TickMarksEvery )
+    {
+        this.TickMarksEvery = TickMarksEvery;
+    }
+
+    public double getGridLinesEverys()
+    {
+        return GridLinesEverys;
+    }
+
+    public void setGridLinesEverys( double GridLinesEverys )
+    {
+        this.GridLinesEverys = GridLinesEverys;
+    }
+
+    public double getDefaultVisibleTime()
+    {
+        return defaultVisibleTime;
+    }
+
+    public void setDefaultVisibleTime( double defaultVisibleTime )
+    {
+        this.defaultVisibleTime = defaultVisibleTime;
+    }
+
+    public int getNumYAxes()
+    {
+        return numYAxes;
+    }
+
+    public void setNumYAxes( int numYAxes )
+    {
+        this.numYAxes = numYAxes;
+    }
+
+    public boolean isUseAutomaticGridLines()
+    {
+        return useAutomaticGridLines;
+    }
+
+    public void setUseAutomaticGridLines( boolean useAutomaticGridLines )
+    {
+        this.useAutomaticGridLines = useAutomaticGridLines;
+    }
+
 }

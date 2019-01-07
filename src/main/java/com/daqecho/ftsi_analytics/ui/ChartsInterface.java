@@ -12,6 +12,8 @@ package com.daqecho.ftsi_analytics.ui;
 public interface ChartsInterface
 {
 
-    void SetupChartProperties();
+    public void SetupChartProperties(NewChartEditorProperties aThis);
+
+    public void SetupChartProperties();
 
 }
